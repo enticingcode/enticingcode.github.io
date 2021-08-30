@@ -25,10 +25,18 @@ function makeGrid() {
 const cell = document.getElementsByClassName('cell');
 console.log(cell); 
 
-function cellHov() {
-    for(var i = 0; i < cell.length; i ++) {
-        cell[i].style.className='cellHov';
+
+// cell.addEventListener("mouseover", changeColor);
+
+function changeColor() {    
+    for(let i = 0; i < cell.length; i++) {
+    cell[i].addEventListener("click", attrChange)
     }
-   // document.addEventListener('mouseover', 
 }
+
+function attrChange() {
+        
+}
+
 makeGrid();
+changeColor();
