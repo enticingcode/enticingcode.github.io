@@ -1,4 +1,4 @@
-console.log("Hello World!")
+//console.log("Hello World!")
 
 const grid = document.getElementById("grid");
 
@@ -22,7 +22,7 @@ function makeGrid() {
 
 
 
-const cell = Array.from(document.getElementsByClassName('cell'));
+const cell = document.getElementsByClassName('cell');
 console.log(cell);
 
 // const getCell = document.querySelectorAll(".cell");
@@ -32,12 +32,13 @@ console.log(cell);
 
 function changeColor() {
     for (let i = 0; i < cell.length; i++) {
-        cell[i].addEventListener("click", attrChange)
+        cell[i].addEventListener("mouseover", attrChange)
     }
 }
 
 function attrChange() {
-    
+    this.classList.add('cellHov')
+    console.log(this);
 }
 
 makeGrid();
