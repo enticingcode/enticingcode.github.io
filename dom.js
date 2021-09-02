@@ -22,20 +22,22 @@ function makeGrid() {
 
 
 
-const cell = document.getElementsByClassName('cell');
-console.log(cell); 
+const cell = Array.from(document.getElementsByClassName('cell'));
+console.log(cell);
 
+// const getCell = document.querySelectorAll(".cell");
+// console.log(getCell);
 
 // cell.addEventListener("mouseover", changeColor);
 
-function changeColor() {    
-    for(let i = 0; i < cell.length; i++) {
-    cell[i].addEventListener("click", attrChange)
+function changeColor() {
+    for (let i = 0; i < cell.length; i++) {
+        cell[i].addEventListener("click", attrChange)
     }
 }
 
 function attrChange() {
-        
+    
 }
 
 makeGrid();
