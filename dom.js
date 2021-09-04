@@ -3,7 +3,7 @@
 const grid = document.getElementById("grid");
 
 
-//console.log(cell);
+
 
 /* cell.innerHTML = "test";
 grid.appendChild(cell); */
@@ -23,7 +23,7 @@ function makeGrid() {
 
 
 const cell = document.getElementsByClassName('cell');
-//console.log(cell);
+console.log(cell);
 
 // const getCell = document.querySelectorAll(".cell");
 // console.log(getCell);
@@ -55,29 +55,23 @@ function addAttr() {
 let colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink', 'black', 'white', 'teal', 'brown', 'tan', 'rosybrown', 'plum']
 const rainbow = document.querySelector("#rainbow");
 
+
+
 function rainbowMode() {
     rainbow.addEventListener("click", function rmvAttr() {
 
         for (let i = 0; i < cell.length; i++) {
             cell[i].classList.remove("cellHov")
         }
+        for (i = 0; i < cell.length; i++)
+        cell[i].addEventListener('mouseover', function () {
+            for (i = 0; i < cell.length; i++)
+                cell[i].style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];})
+
+    
     })
-};
+}
 
-
-
-
-
-// rainbow.addEventListener('click', function () {
-//     for(i=0; i < cell.length; i++) {
-//         cell[i].addEventListener('mouseover',function(){
-//             for(i=0; i < cell.length; i++)
-//             cell.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];})
-
-//     }
-// }
-
-// )}
 
 
 const reset = document.querySelector('#reset');
