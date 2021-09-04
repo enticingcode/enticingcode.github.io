@@ -32,14 +32,30 @@ console.log(cell);
 
 function changeColor() {
     for (let i = 0; i < cell.length; i++) {
-        cell[i].addEventListener("mouseover", attrChange)
+        cell[i].addEventListener("mouseover", addAttr)
     }
 }
 
-function attrChange() {
+function addAttr() {
     this.classList.add('cellHov')
-    console.log(this);
 }
 
+
+
+
+
+function rmvAttr() {
+    cell.classList.remove("cellHov")
+}
+
+
+const reset = document.querySelector('#reset');
+function resetGrid() {
+    reset.addEventListener("click", rmvAttr)
+}
+
+console.log(reset);
+
+resetGrid();
 makeGrid();
 changeColor();
