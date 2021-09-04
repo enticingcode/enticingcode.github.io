@@ -30,6 +30,9 @@ const cell = document.getElementsByClassName('cell');
 
 // cell.addEventListener("mouseover", changeColor);
 
+
+
+// CHANGES COLOR OF CELLS TO GREY //
 function changeColor() {
     for (let i = 0; i < cell.length; i++) {
         cell[i].addEventListener("mouseover", addAttr)
@@ -41,51 +44,57 @@ function addAttr() {
 }
 
 
+// REMOVES/RESETS CELLS COLOR // 
 
-function rmvAttr() {
-    for (let i = 0; i < cell.length; i++) {
-        cell[i].classList.remove("cellHov")
-    }
-    var gridSize = window.prompt("how many squares do you want?")
-    function adjustGrid(gridSize){
-        
-    }
 
-    adjustGrid(gridSize);
-}
 
-let colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink', 'black', 'white','teal', 'brown', 'tan', 'rosybrown', 'plum']
+
+
+//adjustGrid(gridSize);
+
+let colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink', 'black', 'white', 'teal', 'brown', 'tan', 'rosybrown', 'plum']
 const rainbow = document.querySelector("#rainbow");
 
 function rainbowMode() {
-    rainbow.addEventListener("click", rmvAttr){
-        
-    }
+    rainbow.addEventListener("click", function rmvAttr() {
+
+        for (let i = 0; i < cell.length; i++) {
+            cell[i].classList.remove("cellHov")
+        }
+    })
+};
 
 
 
 
 
-    // rainbow.addEventListener('click', function () {
-    //     for(i=0; i < cell.length; i++) {
-    //         cell[i].addEventListener('mouseover',function(){
-    //             for(i=0; i < cell.length; i++)
-    //             cell.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];})
-            
-    //     }
-    // }
-    
-    // )}
+// rainbow.addEventListener('click', function () {
+//     for(i=0; i < cell.length; i++) {
+//         cell[i].addEventListener('mouseover',function(){
+//             for(i=0; i < cell.length; i++)
+//             cell.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];})
+
+//     }
+// }
+
+// )}
 
 
 const reset = document.querySelector('#reset');
+
 function resetGrid() {
-    reset.addEventListener("click", rmvAttr)
+    reset.addEventListener("click", function rmvAttr() {
+        for (let i = 0; i < cell.length; i++) {
+            cell[i].classList.remove("cellHov")
+        };
+        var gridSize = window.prompt("how many squares do you want?")
+
+    })
 }
 
 //console.log(reset);
 
-resetGrid();
+resetGrid('reset');
 makeGrid();
 changeColor();
 rainbowMode();
