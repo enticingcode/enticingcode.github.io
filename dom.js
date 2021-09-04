@@ -23,7 +23,7 @@ function makeGrid() {
 
 
 const cell = document.getElementsByClassName('cell');
-console.log(cell);
+//console.log(cell);
 
 // const getCell = document.querySelectorAll(".cell");
 // console.log(getCell);
@@ -42,8 +42,6 @@ function addAttr() {
 
 
 
-
-
 function rmvAttr() {
     for (let i = 0; i < cell.length; i++) {
         cell[i].classList.remove("cellHov")
@@ -56,14 +54,38 @@ function rmvAttr() {
     adjustGrid(gridSize);
 }
 
+let colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink', 'black', 'white','teal', 'brown', 'tan', 'rosybrown', 'plum']
+const rainbow = document.querySelector("#rainbow");
+
+function rainbowMode() {
+    rainbow.addEventListener("click", rmvAttr){
+        
+    }
+
+
+
+
+
+    // rainbow.addEventListener('click', function () {
+    //     for(i=0; i < cell.length; i++) {
+    //         cell[i].addEventListener('mouseover',function(){
+    //             for(i=0; i < cell.length; i++)
+    //             cell.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];})
+            
+    //     }
+    // }
+    
+    // )}
+
 
 const reset = document.querySelector('#reset');
 function resetGrid() {
     reset.addEventListener("click", rmvAttr)
 }
 
-console.log(reset);
+//console.log(reset);
 
 resetGrid();
 makeGrid();
 changeColor();
+rainbowMode();
