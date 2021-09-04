@@ -45,7 +45,15 @@ function addAttr() {
 
 
 function rmvAttr() {
-    cell.classList.remove("cellHov")
+    for (let i = 0; i < cell.length; i++) {
+        cell[i].classList.remove("cellHov")
+    }
+    var gridSize = window.prompt("how many squares do you want?")
+    function adjustGrid(gridSize){
+        
+    }
+
+    adjustGrid(gridSize);
 }
 
 
