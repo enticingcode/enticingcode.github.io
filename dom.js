@@ -23,7 +23,7 @@ function makeGrid() {
 
 
 const cell = document.getElementsByClassName('cell');
-console.log(cell);
+//console.log(cell);
 
 // const getCell = document.querySelectorAll(".cell");
 // console.log(getCell);
@@ -46,54 +46,60 @@ function addAttr() {
 
 // REMOVES/RESETS CELLS COLOR // 
 
-
+function rmvAttr() {
+    for (let i = 0; i < cell.length; i++) {
+        cell[i].classList.remove("cellHov");
+        cell[i].style.backgroundColor = "";
+    }
+}
 
 
 
 //adjustGrid(gridSize);
 
+
 let colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink', 'black', 'white', 'teal', 'brown', 'tan', 'rosybrown', 'plum']
 const rainbow = document.querySelector("#rainbow");
 
-
-
 function rainbowMode() {
-    rainbow.addEventListener("click", function rmvAttr() {
-
-        for (let i = 0; i < cell.length; i++) {
-            cell[i].classList.remove("cellHov")
-        }
-        for (i = 0; i < cell.length; i++)
-        cell[i].addEventListener('mouseover', function () {
-            for (i = 0; i < cell.length; i++)
-                cell[i].style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];})
-
-    
+    rainbow.addEventListener("click", () => {
+        rmvAttr();
+        rainbowVomit();
     })
 }
 
+function rainbowVomit() {
+    for (i = 0; i < cell.length; i++)
+        cell[i].addEventListener('mouseover', function () {
+            this.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+        })
+}
 
 
 const reset = document.querySelector('#reset');
 
 function resetGrid() {
-    reset.addEventListener("click", function rmvAttr() {
-        for (let i = 0; i < cell.length; i++) {
-            cell[i].classList.remove("cellHov")
-        };
-        var gridSize = window.prompt("how many squares do you want?")
-
+    reset.addEventListener("click", rmvAttr);
+    cell[i].removeEventListener("mouseover", () => {
+        rmvAttr();
+        rainbowVomit();
     })
 }
+    //var gridSize = window.prompt("how many squares do you want?")
+
 
 //console.log(reset);
 
-resetGrid('reset');
+
 makeGrid();
-changeColor();
 rainbowMode();
+<<<<<<< HEAD
 
 
 const result = null;
 
 console.log(typeof result);
+=======
+changeColor();
+resetGrid();
+>>>>>>> 8f27059422ae84df8d0fa376cb8a15cfcd41cbd9
