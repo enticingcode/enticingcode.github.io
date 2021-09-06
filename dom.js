@@ -93,13 +93,5 @@ function resetGrid() {
 
 makeGrid();
 rainbowMode();
-<<<<<<< HEAD
-
-
-const result = null;
-
-console.log(typeof result);
-=======
 changeColor();
 resetGrid();
->>>>>>> 8f27059422ae84df8d0fa376cb8a15cfcd41cbd9
