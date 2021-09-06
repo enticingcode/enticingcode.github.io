@@ -92,3 +92,8 @@ resetGrid('reset');
 makeGrid();
 changeColor();
 rainbowMode();
+
+
+const result = null;
+
+console.log(typeof result);
