@@ -3,11 +3,9 @@
 const grid = document.getElementById("grid");
 
 function makeGrid() {
-    for (let i = 0; i < 255; i++) {
+    for (let i = 0; i < 1000; i++) {
         const cell = document.createElement('div');
-        cell.innerHTML = "1";
         grid.appendChild(cell).className = 'cell';
-
     }
 }
 
@@ -41,7 +39,7 @@ function rmvAttr() {
 let colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink', 'black', 'white', 'teal', 'brown', 'tan', 'rosybrown', 'plum']
 const rainbowBtn = document.querySelector("#rainbowBtn");
 
-console.log(rainbowBtn);
+//console.log(rainbowBtn);
 
 function rainbowMode() {
     rainbowBtn.addEventListener("click", () => {
