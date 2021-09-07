@@ -60,7 +60,8 @@ const resetBtn = document.querySelector('#reset');
 
 
 function assignGrid() {
-    gridSize = window.prompt("How many squares per side do you want? Max: 100")
+    gridSize = window.prompt("How many squares per side do you want? Max: 100");
+    console.log(gridSize);
  }
 
 function reset() {
@@ -68,7 +69,7 @@ function reset() {
     
 }
 
-
+//console.log(gridSize);
 
 
 
