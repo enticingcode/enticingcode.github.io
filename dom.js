@@ -34,8 +34,8 @@ function rmvAttr() {
         cell[i].classList.remove("cellHov");
         cell[i].style.backgroundColor = "";
         cell[i].removeEventListener('mouseover', randomizeColors)
-        
     }
+    assignGrid();
 }
 
 let colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink', 'black', 'white', 'teal', 'brown', 'tan', 'rosybrown', 'plum']
@@ -45,7 +45,6 @@ console.log(rainbowBtn);
 
 function rainbowMode() {
     rainbowBtn.addEventListener("click", () => {
-        rmvAttr();
         rainbowVomit();
     })
 }
@@ -61,14 +60,19 @@ function randomizeColors() {
 
 const resetBtn = document.querySelector('#reset');
 
+
+function assignGrid() {
+    gridSize = window.prompt("How many squares per side do you want? Max: 100")
+ }
+
 function reset() {
     resetBtn.addEventListener("click", rmvAttr)
     
 }
-//var gridSize = window.prompt("how many squares do you want?")
 
 
-//console.log(reset);
+
+
 
 
 makeGrid();
