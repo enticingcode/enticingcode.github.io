@@ -18,7 +18,9 @@ const cell = document.getElementsByClassName('cell');
 function changeColor() {
     for (let i = 0; i < cell.length; i++) {
         cell[i].addEventListener("mouseover", addAttr)
+
     }
+    return;
 }
 
 // ADDS CELLS ATTRIBUTE COLOR // 
@@ -31,6 +33,8 @@ function rmvAttr() {
     for (let i = 0; i < cell.length; i++) {
         cell[i].classList.remove("cellHov");
         cell[i].style.backgroundColor = "";
+        cell[i].removeEventListener('mouseover', randomizeColors)
+        
     }
 }
 
@@ -48,7 +52,7 @@ function rainbowMode() {
 
 function rainbowVomit() {
     for (i = 0; i < cell.length; i++) {
-        cell[i].addEventListener('mouseover', randomizeColors)
+        cell[i].addEventListener('mouseover', randomizeColors, false)
     }
 }
 function randomizeColors() {
@@ -58,7 +62,8 @@ function randomizeColors() {
 const resetBtn = document.querySelector('#reset');
 
 function reset() {
-    resetBtn.addEventListener("click", rmvAttr);
+    resetBtn.addEventListener("click", rmvAttr)
+    
 }
 //var gridSize = window.prompt("how many squares do you want?")
 
