@@ -3,7 +3,7 @@
 const grid = document.getElementById("grid");
 
 function makeGrid() {
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 256; i++) {
         const cell = document.createElement('div');
         grid.appendChild(cell).className = 'cell';
     }

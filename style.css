@@ -14,6 +14,7 @@ body {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
+    grid-gap: 1px;
 }
 
 .cell {
@@ -23,7 +24,7 @@ body {
     font-family: Arial;
     font-size: 6px;
     font-weight: bold;
-    background: white;
+    background: rgb(216, 127, 127);
     width: auto;
     height: auto;
 
@@ -33,6 +34,3 @@ body {
     background-color: gray;
 }
 
-.hello {
-    color: blue;
-}
