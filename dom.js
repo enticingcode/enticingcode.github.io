@@ -58,10 +58,15 @@ function randomizeColors() {
 
 const resetBtn = document.querySelector('#reset');
 
+const container = document.getElementById(".container")
 
 function assignGrid() {
     gridSize = window.prompt("How many squares per side do you want? Max: 100");
+    container.setProperty(`grid-template-columns, (${gridSize}, 1fr), !important`);
+    container.setProperty(`grid-template-rows, (${gridSize}, 1fr), !important`);
+    
     console.log(gridSize);
+    //grid-template-columns: repeat(16, 1fr);
  }
 
 function reset() {
