@@ -3,9 +3,12 @@
 const grid = document.getElementById("grid");
 
 function makeGrid(sizeMeUp) {
-    for (let i = 0; i < 255; i++) {
+    for (let i = 0; i < sizeMeUp * sizeMeUp; i++) {
         const cell = document.createElement('div');
         grid.appendChild(cell).className = 'cell';
+        container.style.gridTemplateColumns= `repeat(${sizeMeUp}, 1fr)`
+        container.style.gridTemplateRows= `repeat(${sizeMeUp}, 1fr)`
+
     }
 }
 
@@ -66,7 +69,6 @@ function assignGrid() {
     container.style.gridTemplateRows= `repeat(${gridSize}, 1fr 1fr)`
     //container.style.border= "20px solid purple";
     
-    
     let sizeMeUp = parseInt(gridSize);
 
     makeGrid(sizeMeUp);
@@ -87,7 +89,7 @@ function reset() {
 
 
 
-makeGrid();
+makeGrid(16);
 rainbowMode();
 changeColor();
 reset();
