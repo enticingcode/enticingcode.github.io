@@ -2,8 +2,8 @@
 
 const grid = document.getElementById("grid");
 
-function makeGrid() {
-    for (let i = 0; i < 256; i++) {
+function makeGrid(sizeMeUp) {
+    for (let i = 0; i < 255; i++) {
         const cell = document.createElement('div');
         grid.appendChild(cell).className = 'cell';
     }
@@ -58,14 +58,22 @@ function randomizeColors() {
 
 const resetBtn = document.querySelector('#reset');
 
-const container = document.getElementById(".container")
+const container = document.querySelector(".container")
 
 function assignGrid() {
     gridSize = window.prompt("How many squares per side do you want? Max: 100");
-    container.setProperty(`grid-template-columns, (${gridSize}, 1fr), !important`);
-    container.setProperty(`grid-template-rows, (${gridSize}, 1fr), !important`);
+    container.style.gridTemplateColumns= `repeat(${gridSize}, 1fr 1fr)`
+    container.style.gridTemplateRows= `repeat(${gridSize}, 1fr 1fr)`
+    //container.style.border= "20px solid purple";
     
-    console.log(gridSize);
+    
+    let sizeMeUp = parseInt(gridSize);
+
+    makeGrid(sizeMeUp);
+
+    console.log(sizeMeUp);
+    //console.log(gridSize);
+    console.log(container);
     //grid-template-columns: repeat(16, 1fr);
  }
 
