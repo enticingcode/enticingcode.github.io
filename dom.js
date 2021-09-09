@@ -21,7 +21,7 @@ function changeColor() {
         cell[i].addEventListener("mouseover", addAttr)
 
     }
-    return;
+    
 }
 
 // ADDS CELLS ATTRIBUTE COLOR // 
