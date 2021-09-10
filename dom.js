@@ -1,18 +1,31 @@
-//console.log("Hello World!")
-
+const testID = document.querySelector('testID');
 const grid = document.getElementById("grid");
+const cell = document.getElementsByClassName('cell');
+let colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink', 'black', 'white', 'teal', 'brown', 'tan', 'rosybrown', 'plum']
+const rainbowBtn = document.querySelector("#rainbowBtn");
 
-function makeGrid(sizeMeUp) {
-    for (let i = 0; i < sizeMeUp * sizeMeUp; i++) {
+function makeGrid() {
+    for (let i = 0; i < 256; i++) {
         const cell = document.createElement('div');
         grid.appendChild(cell).className = 'cell';
-        container.style.gridTemplateColumns= `repeat(${sizeMeUp}, 1fr)`
-        container.style.gridTemplateRows= `repeat(${sizeMeUp}, 1fr)`
+        // container.style.gridTemplateColumns= `repeat(${sizeMeUp}, 1fr)`
+        // container.style.gridTemplateRows= `repeat(${sizeMeUp}, 1fr)`
 
     }
 }
 
-const cell = document.getElementsByClassName('cell');
+function resetGrid() {
+    for (let i = 0; i < 10000; i++) {
+        grid.removeChild(testID);
+        
+        //const cell = document.createElement('div');
+        //container.style.gridTemplateColumns= `repeat(${sizeMeUp}, 1fr)`
+        //container.style.gridTemplateRows= `repeat(${sizeMeUp}, 1fr)`
+
+    }
+}
+
+
 
 
 // CHANGES COLOR OF CELLS TO GREY //
@@ -21,7 +34,7 @@ function changeColor() {
         cell[i].addEventListener("mouseover", addAttr)
 
     }
-    
+
 }
 
 // ADDS CELLS ATTRIBUTE COLOR // 
@@ -39,8 +52,7 @@ function rmvAttr() {
     assignGrid();
 }
 
-let colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink', 'black', 'white', 'teal', 'brown', 'tan', 'rosybrown', 'plum']
-const rainbowBtn = document.querySelector("#rainbowBtn");
+
 
 //console.log(rainbowBtn);
 
@@ -65,23 +77,20 @@ const container = document.querySelector(".container")
 
 function assignGrid() {
     gridSize = window.prompt("How many squares per side do you want? Max: 100");
-    container.style.gridTemplateColumns= `repeat(${gridSize}, 1fr 1fr)`
-    container.style.gridTemplateRows= `repeat(${gridSize}, 1fr 1fr)`
+    container.style.gridTemplateColumns = `repeat(${gridSize},  1fr)`
+    container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`
     //container.style.border= "20px solid purple";
-    
+
     let sizeMeUp = parseInt(gridSize);
 
-    makeGrid(sizeMeUp);
+    resetGrid(sizeMeUp);
+    //console.log(makeGrid(sizeMeUp));
 
-    console.log(sizeMeUp);
-    //console.log(gridSize);
-    console.log(container);
-    //grid-template-columns: repeat(16, 1fr);
- }
+}
 
 function reset() {
     resetBtn.addEventListener("click", rmvAttr)
-    
+
 }
 
 //console.log(gridSize);
@@ -89,7 +98,7 @@ function reset() {
 
 
 
-makeGrid(16);
+makeGrid();
 rainbowMode();
 changeColor();
 reset();
