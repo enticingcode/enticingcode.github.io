@@ -4,27 +4,16 @@ const cell = document.getElementsByClassName('cell');
 let colors = ['blue', 'red', 'green', 'yellow', 'purple', 'pink', 'black', 'white', 'teal', 'brown', 'tan', 'rosybrown', 'plum']
 const rainbowBtn = document.querySelector("#rainbowBtn");
 
-function makeGrid() {
-    for (let i = 0; i < 256; i++) {
+function makeGrid(totalCells) {
+    for (let i = 0; i < totalCells * totalCells; i++) {
         const cell = document.createElement('div');
         grid.appendChild(cell).className = 'cell';
         // container.style.gridTemplateColumns= `repeat(${sizeMeUp}, 1fr)`
         // container.style.gridTemplateRows= `repeat(${sizeMeUp}, 1fr)`
 
     }
+    changeColor();
 }
-
-function resetGrid() {
-    for (let i = 0; i < 10000; i++) {
-        grid.removeChild(testID);
-        
-        //const cell = document.createElement('div');
-        //container.style.gridTemplateColumns= `repeat(${sizeMeUp}, 1fr)`
-        //container.style.gridTemplateRows= `repeat(${sizeMeUp}, 1fr)`
-
-    }
-}
-
 
 
 
@@ -48,10 +37,10 @@ function rmvAttr() {
         cell[i].classList.remove("cellHov");
         cell[i].style.backgroundColor = "";
         cell[i].removeEventListener('mouseover', randomizeColors)
+
     }
     assignGrid();
 }
-
 
 
 //console.log(rainbowBtn);
@@ -76,16 +65,25 @@ const resetBtn = document.querySelector('#reset');
 const container = document.querySelector(".container")
 
 function assignGrid() {
+    while (grid.hasChildNodes()) {
+        grid.removeChild(grid.lastChild);
+
+        //const cell = document.createElement('div');
+        //container.style.gridTemplateColumns= `repeat(${sizeMeUp}, 1fr)`
+        //container.style.gridTemplateRows= `repeat(${sizeMeUp}, 1fr)`
+    }
     gridSize = window.prompt("How many squares per side do you want? Max: 100");
-    container.style.gridTemplateColumns = `repeat(${gridSize},  1fr)`
-    container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`
-    //container.style.border= "20px solid purple";
-
+    if (gridSize <= 100){
     let sizeMeUp = parseInt(gridSize);
+    container.style.gridTemplateColumns = `repeat(${sizeMeUp},  1fr)`
+    container.style.gridTemplateRows = `repeat(${sizeMeUp}, 1fr)`
+    console.log(sizeMeUp);
 
-    resetGrid(sizeMeUp);
-    //console.log(makeGrid(sizeMeUp));
-
+    makeGrid(sizeMeUp);
+    }
+    else if (gridSize > 100) {
+        alert("error, please under 100, don't brick your system dumbass")
+    }
 }
 
 function reset() {
@@ -98,7 +96,7 @@ function reset() {
 
 
 
-makeGrid();
+makeGrid(16);
 rainbowMode();
 changeColor();
 reset();

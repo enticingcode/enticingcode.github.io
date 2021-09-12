@@ -1,15 +1,37 @@
 body {
-    background-color: yellow;
+    background-color: grey;
+}
+h1 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
 }
 
+#buttonLayout {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+
+}
 .container {
-    background: burlywood;
+    background: rgb(37, 153, 199);
     display: inline-block;
     border: 5px solid black;
     width: 650px;
     height: 650px;
 }
-
+span {
+    display: grid;
+    justify-content: center;
+}
 #grid {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
@@ -24,13 +46,13 @@ body {
     font-family: Arial;
     font-size: 6px;
     font-weight: bold;
-    background: rgb(216, 127, 127);
+    background: rgb(190, 187, 187);
     width: auto;
     height: auto;
 
 }
 
 .cellHov{
-    background-color: gray;
+    background-color: black;
 }
 
