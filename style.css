@@ -27,8 +27,8 @@ h1 {
     background: rgb(37, 153, 199);
     display: inline-block;
     border: 5px solid black;
-    width: 650px;
-    height: 650px;
+    width: 700px;
+    height: 700px;
 }
 span {
     display: grid;
