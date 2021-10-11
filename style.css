@@ -48,6 +48,8 @@ table {
 	border-spacing: 0;
 }
 
+
+
 /* STYLE RESET ABOVE*/
 
 #calcBorder {
@@ -62,6 +64,17 @@ table {
     display: flex;
 }
 
+.operators{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: skyblue;
+}
+#equal {
+    background-color: tomato;
+}
 
 .btn {
     width: 40px;
@@ -75,3 +88,8 @@ table {
 #zero {
     width: 100px;
 }
+
+.rows {
+
+}
+
