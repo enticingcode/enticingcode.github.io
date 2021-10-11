@@ -58,3 +58,20 @@ table {
     height: 500px;
 }
 
+#numbers {
+    display: flex;
+}
+
+
+.btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+}
+
+#zero {
+    width: 100px;
+}
