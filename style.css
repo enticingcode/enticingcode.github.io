@@ -59,16 +59,13 @@ h1,p{
 }
 
 
-
-
-
 #calcBorder {
     background-color: silver;
     padding: 10px;
-    width: 460px;
+    width: 350px;
     height: 500px;
     margin: auto;
-    grid-gap: 1px;
+   
 }
 
 #numbers {
@@ -77,8 +74,9 @@ h1,p{
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     border: 1px solid black;
-    padding: 0;
-    margin: 0;
+    padding: 10px;
+    margin: 10px;
+
 }
 
 .operators{
@@ -106,20 +104,13 @@ h1,p{
     background-color: rgb(97, 96, 96);
     border-radius: 50px;
     padding: 10px;
+    margin: 3px;
 }
 
 #zero {
     width: 100px;
 }
 
-.rows {
-    display: flex;
-    flex-direction: row;
-   
-    width: auto;
-    height: auto;
-    grid-gap: 1px 1px;
-}
 
 .operation {
     width: 40px;
@@ -133,3 +124,11 @@ h1,p{
 #clear, #plusMinus, #percentage{
  background-color: silver;
 }
+
+#screen {
+    background-color: white;
+    display: grid;
+    margin: 15px 10px;
+    padding: 70px;
+}
+
