@@ -4,9 +4,15 @@ let log = console.log;
 // const eight = document.querySelector("#eight");
 // let x = addEventListener('onclick');
 
-const clear = document.querySelector("#clear")
-log(clear);
 
+function clearButton() {
+    document.addEventListener("#clear", clear());
+}
+const clear = function() {
+    let result = document.querySelector("#result");
+    // result.textContent("");
+    log(result);
+}
 
 
 
@@ -29,3 +35,5 @@ const multiply = function(x, y) {
 
 
 log(add(3,4));
+
+clearButton();
