@@ -126,10 +126,7 @@ h1,p{
     background-color: white;
     margin: 15px 10px;
     padding: 70px;
-    background-color: white;
     border-radius: 2%;
-    height: 
-    
 }
 
 .row {
@@ -142,7 +139,7 @@ h1,p{
 
 #result {
     background-color: blue;
-    position: absolute;
+    position: relative;
     right: 50px;
-    bottom: 50px;
+    top: 50px;
 }
