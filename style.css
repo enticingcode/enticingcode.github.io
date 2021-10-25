@@ -74,13 +74,8 @@ h1,p{
 
 #numbers {
     background-color:rgb(56, 50, 50);
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(5, 1fr);
     padding: 10px;
     margin: 10px;
-    height: auto;
-
 }
 
 .operators{
