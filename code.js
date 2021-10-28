@@ -2,39 +2,25 @@ let log = console.log;
 log("hello world")
 
 
-
-
-
-// let btn = document.querySelectorAll(".btn").forEach(function(e) {
-//     e.addEventListener("click", function() {
-//         this.style.backgroundColor = "red";
-//     })
-// });
+const numberButtons = document.querySelectorAll(".btn")
+const operatorButtons = document.querySelectorAll(".operators")
+const equalsButton = document.querySelector("#equal")
+const allClearButton = document.querySelector("#clear")
 
 
 
 
 
+log(numberButtons, operatorButtons, equalsButton, allClearButton)
 
 
 
+let operator = function() {
+
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-log(btn);
+// log(btn);
 
 const add = function(x, y) {
     return x + y;
@@ -52,3 +38,8 @@ const multiply = function(x, y) {
     return x * y;
 }
 
+// let btn = document.querySelectorAll(".btn").forEach(function(e) {
+//     e.addEventListener("click", function() {
+//         this.style.backgroundColor = "red";
+//     })
+// });

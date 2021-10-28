@@ -113,7 +113,6 @@ h1,p{
     border-radius: 50px;
 }
 
-
 #clear, #plusMinus, #percentage{
  background-color: silver;
 }
@@ -139,7 +138,6 @@ h1,p{
 }
 
 #result {
-    background-color: gray;
     display: flex;
     font-size: 30px;
     white-space: nowrap;
