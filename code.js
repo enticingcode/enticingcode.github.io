@@ -1,21 +1,40 @@
 let log = console.log;
-
-// const nine = document.querySelector("#nine");
-// const eight = document.querySelector("#eight");
-// let x = addEventListener('onclick');
-
-
-function clearButton() {
-    document.addEventListener("#clear", clear());
-}
-const clear = function() {
-    let result = document.querySelector("#result");
-    // result.textContent("");
-    log(result);
-}
+log("hello world")
 
 
 
+
+
+// let btn = document.querySelectorAll(".btn").forEach(function(e) {
+//     e.addEventListener("click", function() {
+//         this.style.backgroundColor = "red";
+//     })
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+log(btn);
 
 const add = function(x, y) {
     return x + y;
@@ -33,7 +52,3 @@ const multiply = function(x, y) {
     return x * y;
 }
 
-
-log(add(3,4));
-
-clearButton();
