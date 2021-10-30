@@ -2,16 +2,19 @@ let log = console.log;
 log("hello world")
 
 
-const numberButtons = document.querySelectorAll(".btn")
+const numberButtons = Array.from(document.getElementsByClassName("btn"))
+log(numberButtons);
 const operatorButtons = document.querySelectorAll(".operators")
 const equalsButton = document.querySelector("#equal")
 const allClearButton = document.querySelector("#clear")
 
+numberButtons.map(button => {
+    button.addEventListener("click", (e) => {
+    console.log(e);
+    console.log(e.target);
+    console.log(e.target.innerText);
+})})
 
-
-
-
-log(numberButtons, operatorButtons, equalsButton, allClearButton)
 
 
 
