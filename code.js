@@ -9,7 +9,7 @@ const allClearButton = document.querySelector("#clear")
 
 const operatorButtons = Array.from(document.getElementsByClassName("operators"))
 const numberButtons = Array.from(document.getElementsByClassName("btn"))
-// log(numberButtons);
+
 
 operatorButtons.map(function (button) {
     button.addEventListener("click", function (e) {
@@ -25,15 +25,10 @@ numberButtons.map(button => {
     console.log(e.target.innerText);
 })})
 
+let firstOperandText = 
 
 
 
-let operator = function() {
-
-}
-
-
-// log(btn);
 
 const add = function(x, y) {
     return x + y;
