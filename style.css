@@ -1,60 +1,19 @@
 body {
-    background-color: grey;
-}
-h1 {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-
+    background-color: black;;
+    color: white;
 }
 
-#buttonLayout {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-    padding: 15px;
-    font-size: 20pt;
-
-}
-.container {
-    background: rgb(37, 153, 199);
-    display: inline-block;
-    border: 5px solid black;
-    width: 700px;
-    height: 700px;
-}
-span {
+h1, h2, div {
     display: grid;
     justify-content: center;
 }
-#grid {
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
-    grid-gap: 1px;
-}
 
-.cell {
-    justify-content: center;
-    align-items: center;
+div, button {
     display: flex;
-    font-family: Arial;
-    font-size: 6px;
-    font-weight: bold;
-    background: rgb(190, 187, 187);
-    width: auto;
-    height: auto;
-
+    flex-direction: row;
+    margin: 3px 10px;
 }
-
-.cellHov{
-    background-color: black;
+button {
+    border-radius: 20px;
+    padding: 5px;
 }
-
