@@ -35,7 +35,11 @@ function deleteListItem(deleteInput, toDoList) {
 
 function promptAdd() {
     let userInput = prompt("Add to List");
-    createItem(userInput);
+    if (userInput === null || userInput === '') {
+
+    } else {
+        createItem(userInput);
+    }
 }
 function promptDelete() {
     let deleteInput = prompt("Choose what item number to delete") - 1;
