@@ -7,6 +7,9 @@ h1, h2, div {
     display: grid;
     justify-content: center;
 }
+h1, h2 {
+    color:rgb(255, 255, 255)
+}
 
 div, button {
     display: flex;
@@ -16,4 +19,7 @@ div, button {
 button {
     border-radius: 20px;
     padding: 5px;
+    background-color:rgb(36, 100, 153);
+    border: 2px solid rgb(36, 100, 153);
+    color: rgb(255, 255, 255);
 }
