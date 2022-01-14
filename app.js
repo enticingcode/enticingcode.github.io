@@ -1,8 +1,26 @@
 let inputBar = document.querySelector('#toDoEntry');
-console.log(inputBar)
+let addButton = document.querySelector('#addItem');
+let incompleteList = document.querySelector('#incomplete')
+let newEntry = document.createElement('div');
+let addedItem;
 
-function getInput() {
-    console.log(inputBar.value);
-}
+addButton.addEventListener('click', function (event) {
+    addedItem = inputBar.value;
+    incompleteList.appendChild(newEntry);
+    newEntry.textContent = addedItem;
 
-getInput();
+
+    console.log(addedItem)
+})
+
+
+
+
+
+
+
+// function getInput() {
+//     console.log(inputBar.value);
+// }
+
+// getInput();
