@@ -2,7 +2,9 @@ let log = console.log;
 log("hello world")
 
 
-let store = "";
+let firstOperand = "";
+let secondOperand = "";
+let operator = null;
 
 const equalsButton = document.querySelector("#equal")
 const allClearButton = document.querySelector("#clear")
@@ -21,27 +23,27 @@ operatorButtons.forEach((button) => {
     button.addEventListener('click', operatorInput);
 })
 
-numberButtons.forEach((button) => {
-    button.addEventListener('click', numberInput);
-})
 
-function calc () {
-    parseInt(store);
-    return store;
 
-    // log(store);
-}
+
 
 function operatorInput(e) {
     screenText.innerText = e.target.innerText;
-      calculation = e.target.innerText;
-      store += e.target.innerText;
+      operator = e.target.innerText;
+      numberButtons.forEach((button) => {
+        button.addEventListener('click', secondOperand);
+    })
 }
 
 function numberInput(e) {
-      screenText.innerText = e.target.innerText;
+      screenText.innerText += e.target.innerText;
         calculation = e.target.innerText;
-        store += e.target.innerText;
+        firstOperand += e.target.innerText;
+}
+
+function secondOperand (e) {
+    screenText.innerText += e.target.innerText;
+      firstOperand += e.target.innerText;
 }
 
 
