@@ -143,8 +143,9 @@ h1,p{
     white-space: nowrap;
     width: 300px;
     overflow:hidden;
-    margin: 10px 4px;
     position: relative;
     top: 70px;
     justify-content: flex-end;
+    margin: 0 0 10px 0;
+    height: 30px;
 }
