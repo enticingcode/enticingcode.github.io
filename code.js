@@ -16,37 +16,72 @@ const keyPad = document.querySelector('#numbers');
 
 // let operatorText = keyPad.addEventListener('click', operatorInput);
 
-let calculation = equalsButton.addEventListener('click', calc);
 
+function addFirstListener() {
+  numberButtons.forEach((button) => {
+    button.addEventListener('click', firstInput);
+  })
+}
+
+function removeFirstListener() {
+  numberButtons.forEach((button) => {
+    button.removeEventListener('click', firstInput);
+  })
+}
+function addSecondListener() {
+  numberButtons.forEach((button) => {
+    button.addEventListener('click', secondInput);
+  })
+}
+function removeSecondListener() {
+  numberButtons.forEach((button) => {
+    button.removeEventListener('click', secondInput);
+  })
+}
 
 operatorButtons.forEach((button) => {
-    button.addEventListener('click', operatorInput);
+  button.addEventListener('click', operatorInput);
 })
 
+equalsButton.addEventListener('click', calculate)
+allClearButton.addEventListener('click', clearAll);
 
 
 
+function clearAll() {
+  firstOperand = "";
+  secondOperand = "";
+  operator = null;
+  screenText.innerText = "";
+  removeSecondListener();
+  addFirstListener();
+}
+
+function calculate(e) {
+  // if ()
+  log(`${Number(firstOperand)} ${operator} ${Number(secondOperand)}`);
+}
 
 function operatorInput(e) {
-    screenText.innerText = e.target.innerText;
-      operator = e.target.innerText;
-      numberButtons.forEach((button) => {
-        button.addEventListener('click', secondOperand);
-    })
+  screenText.innerText = e.target.innerText;
+  operator = e.target.innerText;
+  removeFirstListener();
+  addSecondListener();
 }
 
-function numberInput(e) {
-      screenText.innerText += e.target.innerText;
-        calculation = e.target.innerText;
-        firstOperand += e.target.innerText;
+function firstInput(e) {
+  screenText.innerText += e.target.innerText;
+  firstOperand += e.target.innerText;
 }
 
-function secondOperand (e) {
-    screenText.innerText += e.target.innerText;
-      firstOperand += e.target.innerText;
+function secondInput(e) {
+
+  screenText.innerText += e.target.innerText;
+  secondOperand += e.target.innerText;
+
 }
 
-
+addFirstListener();
 
 // const add = function(x, y) {
 //     return x + y;
