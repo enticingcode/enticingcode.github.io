@@ -12,31 +12,52 @@ const operatorButtons = document.querySelectorAll(".operators")
 const numberButtons = document.querySelectorAll(".btn")
 const screenText = document.querySelector('#result');
 const keyPad = document.querySelector('#numbers');
+const calcPreview = document.querySelector("#calcPreview")
+
+// function removeFirstListener() {
+//   numberButtons.forEach((button) => {
+//     button.removeEventListener('click', firstInput);
+//   })
+// }
+// function addSecondListener() {
+//   numberButtons.forEach((button) => {
+//     button.addEventListener('click', secondInput);
+//   })
+// }
+// function removeSecondListener() {
+//   numberButtons.forEach((button) => {
+//     button.removeEventListener('click', secondInput);
+//   })
+// }
 
 
-// let operatorText = keyPad.addEventListener('click', operatorInput);
-
-
-function addFirstListener() {
+function numbersBtns() {
   numberButtons.forEach((button) => {
-    button.addEventListener('click', firstInput);
+    button.addEventListener('click', function (e) {
+      if (operator === null) {
+        firstInput(e);
+      } else {
+        secondInput(e);
+      }
+    });
   })
 }
 
-function removeFirstListener() {
-  numberButtons.forEach((button) => {
-    button.removeEventListener('click', firstInput);
-  })
+function firstInput(e) {
+  firstOperand += e.target.innerText;
+  screenText.innerText = firstOperand;
+  log(firstOperand)
 }
-function addSecondListener() {
-  numberButtons.forEach((button) => {
-    button.addEventListener('click', secondInput);
-  })
+
+function secondInput(e) {
+  secondOperand += e.target.innerText;
+  screenText.innerText = secondOperand;
+  calcPreview.innerText = `${firstOperand} ${operator} ${secondOperand}`;
+
 }
-function removeSecondListener() {
-  numberButtons.forEach((button) => {
-    button.removeEventListener('click', secondInput);
-  })
+function operatorInput(e) {
+  operator = e.target.innerText;
+  screenText.innerText = operator;
 }
 
 operatorButtons.forEach((button) => {
@@ -53,51 +74,64 @@ function clearAll() {
   secondOperand = "";
   operator = null;
   screenText.innerText = "";
-  removeSecondListener();
-  addFirstListener();
+  calcPreview.innerText = "";
 }
 
 function calculate(e) {
-  // if ()
+  if (operator === "*") {
+    log(multiply(firstOperand, secondOperand));
+  }
+  else if (operator === "+") {
+    log(add(Number(firstOperand), Number(secondOperand)));
+  }
+  else if (operator === "-") {
+    log(subtract(Number(firstOperand), Number(secondOperand)));
+  }
+  else if (operator === "/") {
+    log(divide(Number(firstOperand), Number(secondOperand)));
+  }
+
+
   log(`${Number(firstOperand)} ${operator} ${Number(secondOperand)}`);
 }
 
-function operatorInput(e) {
-  screenText.innerText = e.target.innerText;
-  operator = e.target.innerText;
-  removeFirstListener();
-  addSecondListener();
+
+
+
+// function firstInput(e) {
+//   screenText.innerText = e.target.innerText;
+//   firstOperand += e.target.innerText;
+// }
+
+// function secondInput(e) {
+
+//   screenText.innerText += e.target.innerText;
+//   secondOperand += e.target.innerText;
+// }
+
+numbersBtns();
+
+
+
+const add = function (x, y) {
+  let result = x + y;
+  return screenText.innerText = result;
 }
 
-function firstInput(e) {
-  screenText.innerText += e.target.innerText;
-  firstOperand += e.target.innerText;
+const substract = function (x, y) {
+  let result = x - y;
+  return screenText.innerText = result;
 }
 
-function secondInput(e) {
-
-  screenText.innerText += e.target.innerText;
-  secondOperand += e.target.innerText;
-
+const divide = function (x, y) {
+  let result = x / y;
+  return screenText.innerText = result;
 }
 
-addFirstListener();
-
-// const add = function(x, y) {
-//     return x + y;
-// }
-
-// const subtract = function(x, y) {
-//     return x - y;
-// }
-
-// const divide = function(x, y) {
-//     return x / y;
-// }
-
-// const multiply = function(x, y) {
-//     return x * y;
-// }
+const multiply = function (x, y) {
+  let result = x * y;
+  return screenText.innerText = result;
+}
 
 // let btn = document.querySelectorAll(".btn").forEach(function(e) {
 //     e.addEventListener("click", function() {
