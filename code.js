@@ -1,9 +1,9 @@
 let log = console.log;
 log("hello world")
 
-
-let firstOperand = "";
-let secondOperand = "";
+let displayValue = 0;
+let firstOperand = null;
+let secondOperand = null;
 let operator = null;
 
 const equalsButton = document.querySelector("#equal")
@@ -14,21 +14,6 @@ const screenText = document.querySelector('#result');
 const keyPad = document.querySelector('#numbers');
 const calcPreview = document.querySelector("#calcPreview")
 
-// function removeFirstListener() {
-//   numberButtons.forEach((button) => {
-//     button.removeEventListener('click', firstInput);
-//   })
-// }
-// function addSecondListener() {
-//   numberButtons.forEach((button) => {
-//     button.addEventListener('click', secondInput);
-//   })
-// }
-// function removeSecondListener() {
-//   numberButtons.forEach((button) => {
-//     button.removeEventListener('click', secondInput);
-//   })
-// }
 
 
 function numbersBtns() {
@@ -46,7 +31,6 @@ function numbersBtns() {
 function firstInput(e) {
   firstOperand += e.target.innerText;
   screenText.innerText = firstOperand;
-  log(firstOperand)
 }
 
 function secondInput(e) {
@@ -73,68 +57,38 @@ function clearAll() {
   firstOperand = "";
   secondOperand = "";
   operator = null;
-  screenText.innerText = "";
+  screenText.innerText = "0";
   calcPreview.innerText = "";
 }
 
-function calculate(e) {
+function calculate() {
+  let x = Number(firstOperand);
+  let y = Number(secondOperand);
+  let op = operator;
+  log(`${x} ${operator} ${y}`);
+
   if (operator === "*") {
-    log(multiply(firstOperand, secondOperand));
+    let result = x * y;
+    console.log(screenText.innerText = result);
   }
   else if (operator === "+") {
-    log(add(Number(firstOperand), Number(secondOperand)));
+    let result = x * y;
+    return screenText.innerText = result;
   }
   else if (operator === "-") {
-    log(subtract(Number(firstOperand), Number(secondOperand)));
+    let result = x * y;
+    return screenText.innerText = result;
   }
   else if (operator === "/") {
-    log(divide(Number(firstOperand), Number(secondOperand)));
+    let result = x * y;
+    return screenText.innerText = result;
   }
 
-
-  log(`${Number(firstOperand)} ${operator} ${Number(secondOperand)}`);
 }
 
 
 
-
-// function firstInput(e) {
-//   screenText.innerText = e.target.innerText;
-//   firstOperand += e.target.innerText;
-// }
-
-// function secondInput(e) {
-
-//   screenText.innerText += e.target.innerText;
-//   secondOperand += e.target.innerText;
-// }
 
 numbersBtns();
 
 
-
-const add = function (x, y) {
-  let result = x + y;
-  return screenText.innerText = result;
-}
-
-const substract = function (x, y) {
-  let result = x - y;
-  return screenText.innerText = result;
-}
-
-const divide = function (x, y) {
-  let result = x / y;
-  return screenText.innerText = result;
-}
-
-const multiply = function (x, y) {
-  let result = x * y;
-  return screenText.innerText = result;
-}
-
-// let btn = document.querySelectorAll(".btn").forEach(function(e) {
-//     e.addEventListener("click", function() {
-//         this.style.backgroundColor = "red";
-//     })
-// });
