@@ -1,10 +1,11 @@
 let log = console.log;
 log("hello world")
 
-let displayValue = 0;
-let firstOperand = null;
-let secondOperand = null;
-let operator = null;
+let totalResult;
+let firstOperand = "";
+let secondOperand = ""
+let firstOperator = null;
+let secondOperator = null;
 
 const equalsButton = document.querySelector("#equal")
 const allClearButton = document.querySelector("#clear")
@@ -19,12 +20,16 @@ const calcPreview = document.querySelector("#calcPreview")
 function numbersBtns() {
   numberButtons.forEach((button) => {
     button.addEventListener('click', function (e) {
-      if (operator === null) {
-        firstInput(e);
-      } else {
+      if (firstOperator != null && secondOperator === null) {
+
         secondInput(e);
       }
-    });
+      else if (firstOperator === null) {
+        firstInput(e);
+      }
+      else secondInput(e);
+    }
+    );
   })
 }
 
@@ -36,12 +41,12 @@ function firstInput(e) {
 function secondInput(e) {
   secondOperand += e.target.innerText;
   screenText.innerText = secondOperand;
-  calcPreview.innerText = `${firstOperand} ${operator} ${secondOperand}`;
+  calcPreview.innerText = `${firstOperand} ${firstOperator} ${secondOperand}`;
 
 }
 function operatorInput(e) {
-  operator = e.target.innerText;
-  screenText.innerText = operator;
+  firstOperator = e.target.innerText;
+  screenText.innerText = firstOperator;
 }
 
 operatorButtons.forEach((button) => {
@@ -56,7 +61,8 @@ allClearButton.addEventListener('click', clearAll);
 function clearAll() {
   firstOperand = "";
   secondOperand = "";
-  operator = null;
+  firstOperator = null;
+  secondOperator = null;
   screenText.innerText = "0";
   calcPreview.innerText = "";
 }
@@ -64,26 +70,26 @@ function clearAll() {
 function calculate() {
   let x = Number(firstOperand);
   let y = Number(secondOperand);
-  let op = operator;
-  log(`${x} ${operator} ${y}`);
+  let op = firstOperator;
+  log(`${x} ${op} ${y}`);
 
-  if (operator === "*") {
+  if (op === "*") {
     let result = x * y;
-    console.log(screenText.innerText = result);
+    result += totalResult;
   }
-  else if (operator === "+") {
-    let result = x * y;
-    return screenText.innerText = result;
+  else if (op === "+") {
+    let result = x + y;
+    result += totalResult;
   }
-  else if (operator === "-") {
-    let result = x * y;
-    return screenText.innerText = result;
+  else if (op === "-") {
+    let result = x - y;
+    result += totalResult;
   }
-  else if (operator === "/") {
-    let result = x * y;
-    return screenText.innerText = result;
+  else if (op === "/") {
+    let result = x / y;
+    result += totalResult;
   }
-
+  return totalResult;
 }
 
 
