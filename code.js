@@ -100,6 +100,9 @@ function calculate() {
                 result = x * y;
                 totalResult = result;
                 break;
+            case "+":
+                result = x + y;
+                totalResult = result;
         }
     }
     else if (op != null && op2 != null) {
@@ -109,6 +112,11 @@ function calculate() {
                 log(x * y);
                 totalResult = result;
                 break;
+
+            case "+":
+                result = x + y;
+                log(x + y);
+                totalResult = result;
         }
     }
     calcPreview.innerText = `${x} ${op} ${y}`;
