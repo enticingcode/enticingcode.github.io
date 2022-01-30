@@ -167,3 +167,13 @@ h1,p{
     height: 20px;
     font-size: 16px;
 }
+
+.operators:focus {
+    background-color: rgb(241, 193, 104);
+
+}
+
+.btn:active {
+    background-color: rgb(124, 123, 123);
+
+}
