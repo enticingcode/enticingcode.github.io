@@ -78,7 +78,7 @@ h1,p{
 
 }
 
-.operators{
+.operators, .operators2{
     width: 60px;
     height: 60px;
     display: flex;
@@ -112,7 +112,7 @@ h1,p{
     border-radius: 50px;
 }
 
-#clear, #plusMinus, #percentage{
+#plusMinus, #percentage{
  background-color: silver;
 }
 
@@ -176,4 +176,13 @@ h1,p{
 .btn:active {
     background-color: rgb(124, 123, 123);
 
+}
+
+#clear:active {
+    background-color: rgb(241, 193, 104);
+
+}
+
+#plusMinus:active,#percentage:active {
+ background-color: rgb(231, 231, 231);
 }

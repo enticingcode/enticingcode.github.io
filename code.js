@@ -8,13 +8,32 @@ let firstOperator = null;
 let secondOperator = null;
 let displayValue = 0;
 
-const equalsButton = document.querySelector("#equal")
-const allClearButton = document.querySelector("#clear")
-const operatorButtons = document.querySelectorAll(".operators")
-const numberButtons = document.querySelectorAll(".btn")
+const equalsButton = document.querySelector("#equal");
+const allClearButton = document.querySelector("#clear");
+const operatorButtons = document.querySelectorAll(".operators");
+const numberButtons = document.querySelectorAll(".btn");
 const screenNum = document.querySelector('#result');
 const keyPad = document.querySelector('#numbers');
-const calcPreview = document.querySelector("#calcPreview")
+const calcPreview = document.querySelector("#calcPreview");
+
+const subOps = document.querySelectorAll(".sub-ops");
+
+
+subOps.forEach((button) => {
+    button.addEventListener('click', changeOperand)
+
+})
+
+
+function changeOperand(e) {
+    if (e.target.value === "%") {
+        screenNum.innerText = Number(screenNum.innerText) / 100;
+    }
+    else if (e.target.value === "sign") {
+        screenNum.innerText = Number(screenNum.innerText * -1);
+    }
+}
+
 
 
 
