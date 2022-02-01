@@ -6,6 +6,7 @@ let firstOperand = "";
 let secondOperand = "";
 let firstOperator = null;
 let secondOperator = null;
+let displayValue = 0;
 
 const equalsButton = document.querySelector("#equal")
 const allClearButton = document.querySelector("#clear")
@@ -29,7 +30,7 @@ function operatorInput(e) {
         firstOperator = e.target.value;
         log(firstOperator);
         log(`firstOp = ${firstOperator}, secondOp = ${secondOperator}`)
-
+        calcPreview.innerText += ` ${firstOperator} `;
     }
     else if (firstOperator != null && secondOperator === null) {
         secondOperator = e.target.value;
@@ -37,7 +38,7 @@ function operatorInput(e) {
         firstOperand = totalResult;
         secondOperand = "";
         log(`firstOp = ${firstOperator}, secondOp = ${secondOperator}`)
-
+        calcPreview.innerText += ` ${secondOperator} `;
     }
     else if (firstOperator != null && secondOperator != null) {
         secondOperator = e.target.value;
@@ -45,29 +46,27 @@ function operatorInput(e) {
         firstOperand = totalResult;
         secondOperand = "";
         log(`firstOp = ${firstOperator}, secondOp = ${secondOperator}`)
-
+        calcPreview.innerText += ` ${secondOperator} `;
     }
-    // firstOperator = e.target.innerText;
-    // calcPreview.innerText += firstOperator;
 }
 
 
 function numberInput(e) {
-    if (firstOperand === "") {
+    if (firstOperator === null) {
         firstOperand += e.target.value;
         screenNum.innerText = firstOperand;
         log(`firstNum = ${firstOperand}, secondNum = ${secondOperand}`);
+        calcPreview.innerText = `${firstOperand}`;
+
 
     }
-    else if (firstOperand != "" && secondOperand == "") {
+    else if (firstOperand != "") {
         secondOperand += e.target.value;
         screenNum.innerText = secondOperand;
         log(`firstNum = ${firstOperand}, secondNum = ${secondOperand}`);
+        calcPreview.innerText = `${secondOperand}`;
+    }
 
-    }
-    else if (firstOperand != "" && secondOperand != "") {
-        log('hi');
-    }
 
 
 }
@@ -100,9 +99,19 @@ function calculate() {
                 result = x * y;
                 totalResult = result;
                 break;
+            case "/":
+                result = x / y;
+                totalResult = result;
+                break;
             case "+":
                 result = x + y;
                 totalResult = result;
+                break;
+            case "-":
+                result = x - y;
+                totalResult = result;
+                break;
+
         }
     }
     else if (op != null && op2 != null) {
@@ -112,14 +121,20 @@ function calculate() {
                 log(x * y);
                 totalResult = result;
                 break;
-
+            case "/":
+                result = x / y;
+                totalResult = result;
+                break;
             case "+":
                 result = x + y;
-                log(x + y);
                 totalResult = result;
+                break;
+            case "-":
+                result = x - y;
+                totalResult = result;
+                break;
         }
     }
-    calcPreview.innerText = `${x} ${op} ${y}`;
     log(x, op, y, totalResult)
     screenNum.innerText = totalResult;
     return totalResult;
