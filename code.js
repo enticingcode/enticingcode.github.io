@@ -37,30 +37,22 @@ function appendNumber(number) {
     if (screenNum.innerText === "0" || resetNumScreen)
         resetScreen();
     screenNum.innerText += number;
-    firstOperand = screenNum.innerText;
-    log(`FirstOP: ${firstOperand}`);
-
-    // else if (screenNum.innerText != "0" && currentOperation != null) 
-    //     resetScreen();
-    //     screenNum.innerText += number;
-    //     secondOperand = screenNum.innerText;
-    //     log(`SecondOP: ${secondOperand}`);
-    //     calculate();
-
 }
 
 function setOperation(operator) {
     if (currentOperation === null) {
         currentOperation = operator;
+        firstOperand = screenNum.innerText;
         calcPreview.innerText = `${firstOperand} ${currentOperation}`;
-        calculate();
         resetNumScreen = true;
+        log(`CurrentOperation: ${currentOperation}`);
     }
     else if (currentOperation != null) {
         calculate();
-        firstOperand = totalResult;
+        firstOperand = screenNum.innerText;
         currentOperation = operator;
         calcPreview.innerText = `${firstOperand} ${currentOperation}`;
+        resetNumScreen = true;
         log(`CurrentOperation: ${currentOperation}`);
 
     }
@@ -73,15 +65,10 @@ function setOperation(operator) {
 
 function resetScreen() {
     screenNum.innerText = "";
+    resetNumScreen = false;
 }
 
-equalsButton.addEventListener('click', (e) => {
-    log(e.target.value);
-    calculate();
-    screenNum.innerText = totalResult;
-    firstOperand = totalResult;
-    currentOperation = null;
-})
+equalsButton.addEventListener('click', calculate);
 allClearButton.addEventListener('click', clearAll);
 
 function clearAll() {
@@ -91,40 +78,49 @@ function clearAll() {
     totalResult = 0;
     screenNum.innerText = "0";
     calcPreview.innerText = "";
+    screenNum.style.fontSize = '25px';
 }
 
+
+function zeroDivision() {
+    screenNum.innerText = "Can't divide by zero dumbass. Please clear all";
+    screenNum.style.fontSize = '12px';
+}
 function calculate() {
-
     if (currentOperation == null || resetNumScreen) return
+    if (currentOperation === "/" && screenNum.innerText === "0") {
+        zeroDivision();
+        return;
+    }
     secondOperand = screenNum.innerText;
-
-
-
-    // let x = Number(firstOperand);
-    // let y = Number(secondOperand);
-    // if (currentOperation != null) {
-    //     switch (currentOperation) {
-    //         case "*":
-    //             totalResult = x * y;
-    //             break;
-    //         case "/":
-    //             totalResult = x / y;
-    //             break;
-    //         case "+":
-    //             totalResult = x + y;
-    //             break;
-    //         case "-":
-    //             totalResult = x - y;
-    //             break;
-    //     }
-    //     return totalResult;
-    // }
+    screenNum.innerText = operate(firstOperand, currentOperation, secondOperand);
+    calcPreview.innerText = `${firstOperand} ${currentOperation} ${secondOperand}`
+    currentOperation = null;
 
 }
 
+function operate(x, op, y) {
+    x = Number(x);
+    y = Number(y);
 
-
-
+    if (currentOperation != null) {
+        switch (op) {
+            case "*":
+                totalResult = x * y;
+                break;
+            case "/":
+                totalResult = x / y;
+                break;
+            case "+":
+                totalResult = x + y;
+                break;
+            case "-":
+                totalResult = x - y;
+                break;
+        }
+        return totalResult;
+    }
+}
 
 
 subOps.forEach((button) => {
