@@ -15,9 +15,10 @@ const screenNum = document.querySelector('#result');
 const keyPad = document.querySelector('#numbers');
 const calcPreview = document.querySelector("#calcPreview");
 const subOps = document.querySelectorAll(".sub-ops");
-
+const decimal = document.querySelector("#decimal");
 //test
 
+decimal.addEventListener('click', appendPoint);
 
 numberButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
@@ -32,7 +33,10 @@ operatorButtons.forEach((button) => {
 })
 
 
-
+function appendPoint() {
+    if (screenNum.innerText.includes('.')) return;
+    screenNum.innerText += '.';
+}
 function appendNumber(number) {
     if (screenNum.innerText === "0" || resetNumScreen)
         resetScreen();
@@ -40,6 +44,7 @@ function appendNumber(number) {
 }
 
 function setOperation(operator) {
+
     if (currentOperation === null) {
         currentOperation = operator;
         firstOperand = screenNum.innerText;
@@ -54,13 +59,10 @@ function setOperation(operator) {
         calcPreview.innerText = `${firstOperand} ${currentOperation}`;
         resetNumScreen = true;
         log(`CurrentOperation: ${currentOperation}`);
-
     }
 
 
 }
-
-
 
 
 function resetScreen() {
