@@ -62,14 +62,15 @@ h1,p{
 
 
 #calcBorder {
-    background-color: rgb(56, 50, 50);
+    background-color: #424640;
     padding: 10px;
     width: 350px;
     height: auto;
     margin: auto;
-    border-radius: 2%;
+    border-radius: 4%;
     position: relative;
     top: 100px;
+    border: solid 2px black;
 }
 
 #numbers {
@@ -85,13 +86,14 @@ h1,p{
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: orange;
+    background-color: #c7cedb;
     margin: 0px 10px;
     border: none;
+    border: solid 1px black;
+
 }
 #equal {
     background-color: orange;
-    
 }
 
 .btn {
@@ -100,12 +102,14 @@ h1,p{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(97, 96, 96);
+    background-color: #7e9181;
     color:black;
     border-radius: 50%;
     margin: 0px 10px;
     border: none;
     font-size: 20px;
+    border: solid 1px black;
+
 }
 
 #zero {
@@ -115,7 +119,8 @@ h1,p{
 }
 
 #plusMinus, #percentage, #decimal{
- background-color: silver;
+ background-color: #c7cedb
+
 }
 
 #screen {
@@ -124,16 +129,17 @@ h1,p{
     margin: 15px 10px;
     padding:25px 5px;
     border-radius: 2%;
+    border:solid 2px black;
 }
 
 .row {
     display: flex;
     flex-direction: row;
     height: 60px;
-    margin: 6px auto;
-    padding: 0px 10px;
+    padding: 3px 7px;
     justify-content: center;
     align-items: center;
+    background-color: #424640;
 }
 
 #result {
@@ -155,9 +161,10 @@ h1,p{
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: orange;
+    background-color: #5d97c7;
     margin: 0px 10px;
     border: none;
+    border: solid 1px black;
 }
 
 #calcPreview {
@@ -180,7 +187,7 @@ h1,p{
 
 }
 
-#clear:active {
+#clear:active, #equal:active {
     background-color: rgb(241, 193, 104);
 
 }
@@ -200,10 +207,15 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(97, 96, 96);
     color:black;
     border-radius: 50%;
     margin: 0px 10px;
     border: none;
     font-size: 20px;
+    background-color: #7e9181;
+    border: solid 1px black;
+}
+
+#div {
+    font-size: larger;
 }
