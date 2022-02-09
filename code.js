@@ -133,12 +133,10 @@ subOps.forEach((button) => {
 
 function changeOperand(e) {
     if (e.target.value === "%") {
-        firstOperand = Number(screenNum.innerText) / 100;
-        screenNum.innerText = firstOperand;
+        screenNum.innerText = Number(screenNum.innerText) / 100;
     }
     else if (e.target.value === "sign") {
-        firstOperand = Number(screenNum.innerText * -1);
-        screenNum.innerText = firstOperand;
+        screenNum.innerText = Number(screenNum.innerText * -1);
     }
 }
 
