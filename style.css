@@ -220,6 +220,6 @@ button {
     font-size: larger;
 }
 
-body {
+body, .btn, .operators, .operators2{
     color: black;
 }
