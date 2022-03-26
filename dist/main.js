@@ -1,0 +1,1 @@
+console.log,document.querySelector("#button").addEventListener("click",(function(){alert("sup")}));
