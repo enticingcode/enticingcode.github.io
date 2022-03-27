@@ -1,16 +1,8 @@
-let log = console.log;
-
-
-const button = document.querySelector("#button");
-
-button.addEventListener("click", popUP);
-
-function popUP() {
-    alert("sup")
-}
+import { loadPage } from "./Modules/initial-load"
 
 
 
 
-// alert("Hello marvin");
-// alert("nah")
+loadPage();
+
+

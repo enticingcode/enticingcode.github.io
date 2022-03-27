@@ -1,1 +1,1 @@
-console.log,document.querySelector("#button").addEventListener("click",(function(){alert("sup")}));
+(()=>{"use strict";console.log("sup")})();
