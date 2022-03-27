@@ -1,4 +1,5 @@
-let log = console.log;
+
+let content = document.querySelector("#content");
 
 
 function createHeader(id, content) {
@@ -28,8 +29,27 @@ function loadBanner() {
     return banner;
 }
 
+function createBtns(className, content, id) {
+    let button = document.createElement("button");
+    button.className = className;
+    button.textContent = content;
+    button.setAttribute("id", id);
+    return button;
+}
 
-
+function loadNav(id) {
+    let navBar = document.createElement("nav");
+    navBar.setAttribute('id', id);
+    let homeBtn = createBtns("navBtn", "Home", "home");
+    let aboutUs = createBtns("navBtn", "About", "about");
+    let foodBtn = createBtns("navBtn", "Food", "food");
+    let contact = createBtns("navBtn", "Contact", "contact");
+    navBar.append(homeBtn);
+    navBar.append(aboutUs);
+    navBar.append(foodBtn);
+    navBar.append(contact);
+    return navBar;
+}
 
 
 
@@ -38,11 +58,17 @@ function loadBanner() {
 
 
 function loadPage() {
-    let content = document.querySelector("#content");
+    // Header & Vid // 
     let header = createHeader("header", "Bienvenidos a NavaMar");
     let videoContainer = loadBanner();
+
+    // Nav Bar //
+    let navBar = loadNav("navBar")
+
     content.append(videoContainer);
     content.append(header);
+    content.append(navBar);
+
 }
 
 
@@ -54,5 +80,4 @@ function loadPage() {
 
 
 
-
-export { loadPage }; 
+export { loadPage, content }; 
