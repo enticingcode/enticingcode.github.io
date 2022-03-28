@@ -2,9 +2,14 @@ import { loadPage } from "./Modules/initial-load"
 import { loadAbout } from "./Modules/about"
 import { loadHome } from "./Modules/home"
 
+
+const contentDiv = document.querySelector("#content");
+
 loadPage();
 
 
+
+// BUTTON LISTENERS // 
 const home = document.querySelector("#home");
 const about = document.querySelector("#about");
 const food = document.querySelector("#food");

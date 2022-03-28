@@ -1,4 +1,5 @@
 let briefInfo = "Welcome to Northwest Arkansas's best Poke Experience!"
+const contentDiv = document.querySelector("#content");
 
 
 function createSummary(id, content) {
@@ -10,7 +11,7 @@ function createSummary(id, content) {
 
 function loadHome() {
     let homeBrief = createSummary("info", briefInfo);
-    content.append(homeBrief);
+    contentDiv.append(homeBrief);
 }
 
 
