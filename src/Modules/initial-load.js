@@ -1,4 +1,3 @@
-
 let content = document.querySelector("#content");
 
 
@@ -53,9 +52,20 @@ function loadNav(id) {
 
 
 
+function createSummary(id, content) {
+    let div = document.createElement("div");
+    div.setAttribute("id", id);
+    div.textContent = content;
+    return div;
+}
 
 
-
+// WORKING ON THIS ////////////////////////////////////
+function appendVideos() {
+    let videoDiv = document.createElement("div");
+    let video = document.createElement("video");
+    video.src
+}
 
 function loadPage() {
     // Header & Vid // 
@@ -64,10 +74,15 @@ function loadPage() {
 
     // Nav Bar //
     let navBar = loadNav("navBar")
-
     content.append(videoContainer);
     content.append(header);
     content.append(navBar);
+
+    // Brief Summary //
+    let briefInfo = "Welcome to Northwest Arkansas's best Poke Experience!"
+    let homeBrief = createSummary("info", briefInfo);
+    content.append(homeBrief);
+
 
 }
 

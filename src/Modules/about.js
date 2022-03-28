@@ -8,7 +8,7 @@ function createSummary(id, content) {
 }
 
 
-let brief = "Welcome to NorthWest Arkansas's best Poke Experience."
+let brief = "About info here"
 
 function loadAbout() {
     let infoDiv = createSummary("info", brief)
