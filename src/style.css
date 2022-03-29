@@ -134,3 +134,21 @@ header h1 {
     bottom: 200px;
     z-index: 5;
 }
+
+
+#imgContain img {
+    width: 200px;
+    animation: fadein 2s;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#imgContain {
+    display:flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 40px;
+    width: 1200px;
+}
