@@ -1,22 +1,15 @@
-let content = document.querySelector("#content");
 
-function createSummary(id, content) {
-    let div = document.createElement("div");
-    div.setAttribute("id", id);
-    div.textContent = content;
-    return div;
-}
-
-
-let brief = "About info here"
 
 function loadAbout() {
-    let infoDiv = createSummary("info", brief)
-    content.append(infoDiv);
+    let infoDiv = document.querySelector("#info");
+    infoDiv.innerHTML = "";
+    infoDiv.style.display = "block";
+    let para = document.createElement("p");
+    para.setAttribute("id", "aboutInfo");
+    para.innerText = "At NavaMar we pride ourselves in preparing and serving up the freshest ingredients into your Poke Bowls."
+    infoDiv.append(para);
+    console.log("defined");
 }
 
 
-
-
-
-export { loadAbout };
+export { loadAbout }

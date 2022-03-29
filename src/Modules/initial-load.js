@@ -1,3 +1,7 @@
+import { loadHome } from "./home"
+import { loadAbout } from "./about"
+import { loadFood } from "./food"
+
 const contentDiv = document.querySelector("#content");
 
 
@@ -51,7 +55,6 @@ function loadNav(id) {
 }
 
 
-
 function createSummary(id, content) {
     let div = document.createElement("div");
     div.setAttribute("id", id);
@@ -59,13 +62,19 @@ function createSummary(id, content) {
     return div;
 }
 
+function populateHome() {
+    let briefInfo = "Welcome to Northwest Arkansas's best Poke Experience!"
+    let homeBrief = createSummary("info", briefInfo);
+    contentDiv.append(homeBrief);
+}
+
 
 // WORKING ON THIS ////////////////////////////////////
-function appendVideos() {
-    let videoDiv = document.createElement("div");
-    let video = document.createElement("video");
-    video.src
-}
+// function appendVideos() {
+//     let videoDiv = document.createElement("div");
+//     let video = document.createElement("video");
+//     video.src
+// }
 
 function loadPage() {
     // Header & Vid // 
@@ -78,21 +87,18 @@ function loadPage() {
     contentDiv.append(header);
     contentDiv.append(navBar);
 
-    // Brief Summary //
-    let briefInfo = "Welcome to Northwest Arkansas's best Poke Experience!"
-    let homeBrief = createSummary("info", briefInfo);
-    contentDiv.append(homeBrief);
+    // Home Page brief //
+    populateHome();
 
+    // BUTTON LISTENERS // 
+    const home = document.querySelector("#home");
+    const about = document.querySelector("#about");
+    const food = document.querySelector("#food");
 
+    home.addEventListener("click", loadHome);
+    about.addEventListener("click", loadAbout);
+    food.addEventListener("click", loadFood);
 }
-
-
-
-
-
-
-
-
 
 
 export { loadPage }; 
