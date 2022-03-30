@@ -169,11 +169,25 @@ figure {
     display:flex;
     flex-wrap:wrap;
     position: absolute;
-    bottom: 200px;
+    bottom: 100px;
 
 }
 
 input{
     margin: 20px 30px;
-    
+}
+
+
+#Message {
+    width: 475px;
+    height: 100px;
+    overflow:hidden;
+}
+
+#submitBtn {
+    position:absolute;
+    bottom:-60px;
+    left:37%;
+    width: 80px;
+    height: 50px;
 }

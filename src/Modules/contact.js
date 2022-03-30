@@ -18,20 +18,30 @@ function loadContact() {
     let containerSelection = document.querySelector("#formContainer");
 
 
-    let formReqs = ["First Name:", "Last Name:", "E-Mail:", "Phone Number:", "Message:"]
+    let formReqs = ["First Name", "Last Name", "E-Mail", "Phone Number", "Message"]
 
 
     if (containerSelection != null) {
         containerSelection.remove();
     }
+
     for (let i = 0; i < 5; i++) {
         let formInput = document.createElement("input");
         formInput.type = "text";
+        formInput.id = `${formReqs[i]}`
+        formInput.placeholder = `${formReqs[i]}`
         formContainer.append(formInput);
     }
 
-    content.append(formContainer);
 
+    let submitBTN = document.createElement("button");
+    submitBTN.setAttribute("id", "submitBtn");
+    submitBTN.innerText = "Submit"
+
+    formContainer.append(submitBTN);
+
+
+    content.append(formContainer);
 
 
 }
