@@ -4,8 +4,14 @@ function loadFood() {
     // HIDE INFORMATION BLOCK //
     let content = document.querySelector("#content");
     let infoDiv = document.querySelector("#info");
-    infoDiv.innerHTML = "";
-    infoDiv.style.display = "none";
+    let containerSelection = document.querySelector("#formContainer");
+
+    if (infoDiv != null) {
+        infoDiv.remove();
+    }
+    else if (containerSelection != null) {
+        containerSelection.remove();
+    }
 
     let resetImgDiv = document.querySelector("#imgContain");
 
@@ -18,16 +24,26 @@ function loadFood() {
     let pics = ["/images/index.jpeg", "/images/pokepoke.jpg", "/images/Pokebowl.jpg"]
     let pictureDiv = document.createElement("div");
     pictureDiv.setAttribute("id", "imgContain");
-
+    let picCaptions = ["Raw Aficionado", "Es-da-Mama's Greens", "The NavaMar Special"]
 
     for (let i = 0; i < 3; i++) {
         // create img divs //
+        let figure = document.createElement("figure");
+        let figureCap = document.createElement("figcaption");
         let newImage = document.createElement("img");
+
         newImage.src = `${pics[i]}`
+        figureCap.innerText = `${picCaptions[i]}`
         newImage.classList.add("images");
 
+        figure.append(newImage);
+        figure.append(figureCap);
+
+
+
+
         // append items //
-        pictureDiv.append(newImage);
+        pictureDiv.append(figure);
     }
 
     content.append(pictureDiv);

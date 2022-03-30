@@ -4,7 +4,6 @@ function loadHome() {
     let content = document.querySelector("#content");
     content.innerHTML = "";
     loadPage();
-    console.log("itowrks");
 
 }
 
