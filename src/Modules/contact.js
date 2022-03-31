@@ -39,9 +39,13 @@ function loadContact() {
     submitBTN.innerText = "Submit"
 
     formContainer.append(submitBTN);
-
-
     content.append(formContainer);
+
+    function alertVisitor() {
+        alert("dang, the button's broken, I guess no Poke for u")
+    }
+
+    submitBTN.addEventListener("click", alertVisitor)
 
 
 }
