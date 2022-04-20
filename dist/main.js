@@ -16,7 +16,17 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_initial_load__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/initial-load */ \"./src/modules/initial-load.js\");\n\n\n\n\n\n(0,_modules_initial_load__WEBPACK_IMPORTED_MODULE_0__.loadPage)();\n\n//# sourceURL=webpack://weatherapp/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_fetchAPI_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/fetchAPI.js */ \"./src/modules/fetchAPI.js\");\n/* harmony import */ var _modules_initial_load_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/initial-load.js */ \"./src/modules/initial-load.js\");\n\n\n\n\n\n(0,_modules_initial_load_js__WEBPACK_IMPORTED_MODULE_1__.loadPage)();\n(0,_modules_fetchAPI_js__WEBPACK_IMPORTED_MODULE_0__.fetchyCityData)(\"Los Angeles\");\n\n//# sourceURL=webpack://weatherapp/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/fetchAPI.js":
+/*!*********************************!*\
+  !*** ./src/modules/fetchAPI.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"fetchWeatherData\": () => (/* binding */ fetchWeatherData),\n/* harmony export */   \"fetchyCityData\": () => (/* binding */ fetchyCityData)\n/* harmony export */ });\n\nasync function fetchyCityData(city) {\n\n    // CITY IS GRABBED FROM INDEX.JS INVOKATION HERE DONT GET CONFUSED //\n    let lat;\n    let lon;\n\n\n    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city},&limit=4&appid=ff42af52d27576f36d9217a0f6903066`, { mode: 'cors' })\n\n        .then(function (response) {\n            return response.json();\n        })\n        .then(function (cityArray) {\n\n            // gathers city object //\n            console.log(cityArray[0]);\n            // loops through city object //\n            for (let item in cityArray[0]) {\n                if (item == \"lat\") {\n                    lat = Object.values(item);\n                    console.log(lat);\n                }\n            }\n\n        })\n}\n\n\nasync function fetchWeatherData(lat, lon) {\n\n}\n\n\n\n\n//# sourceURL=webpack://weatherapp/./src/modules/fetchAPI.js?");
 
 /***/ }),
 
