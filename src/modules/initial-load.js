@@ -1,0 +1,7 @@
+function loadPage() {
+
+
+}
+
+
+export { loadPage };

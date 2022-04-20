@@ -1,1 +1,6 @@
-console.log("sup")
+import { loadPage } from "./modules/initial-load";
+
+
+
+
+loadPage();
