@@ -136,6 +136,15 @@ table {
 
 
 /* USER INVOKED STYLING BELOW */
+@font-face {
+    font-family: ABEEZEE;
+    src: url(/assets/fonts/ABeeZee-Regular.ttf);
+}
+
+@font-face {
+    font-family: marker;
+    src: url(/assets/fonts/PermanentMarker-Regular.ttf);
+}
 
 :root {
     --sunny-day: linear-gradient(#fffba8, #a3d3f3);
@@ -152,4 +161,14 @@ body {
 
 body {
     background: var(--snowy-day)
+}
+
+header {
+    height: 140px;
+    background-color: #616e8f10
+}
+
+h1 {
+    font-size: calc(1rem + 1vw);
+    font-family: marker, sans-serif;
 }
