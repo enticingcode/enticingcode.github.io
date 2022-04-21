@@ -27,9 +27,7 @@ async function fetchCityData(city) {
         let weatherData = await fetchWeather.json();
         console.log(weatherData);
     }
-
-    getWeatherData();
-
+    return getWeatherData();
 }
 
 

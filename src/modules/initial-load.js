@@ -17,13 +17,17 @@ function loadPage() {
     searchBtn.addEventListener("click", validateInput);
 
 
-    async function validateInput() {
+    function validateInput() {
         if (inputBox.value == "") {
-            console.log("Please enter valid city");
+            inputBox.setCustomValidity("Please enter a city");
+            inputBox.reportValidity();
         }
-        else if (inputBox != "") {
-            fetchCityData(inputBox.value);
-        }
+        // if (inputBox.value == "") {
+        //     console.log("Please enter valid city");
+        // }
+        // else if (inputBox != "") {
+        //     fetchCityData(inputBox.value);
+        // }
 
     }
 
