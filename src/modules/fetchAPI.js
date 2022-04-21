@@ -29,4 +29,4 @@ async function fetchCityData(city) {
 
 
 
-export { fetchCityData, getWeatherData };
+export { fetchCityData };

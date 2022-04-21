@@ -160,7 +160,7 @@ body {
 }
 
 body {
-    background: var(--sunny-day)
+    background: var(--rainy-day)
 }
 
 header {
@@ -182,6 +182,9 @@ h1 {
 }
 
 aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 400px;
     height: 100%;
 }
@@ -189,4 +192,44 @@ aside {
 main {
     width: calc(100% - 400px);
     height: 100%;
+}
+
+#changeTempFormat {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 10px 20px;
+    margin: 5px 10px;
+    border-radius: 10px;
+}
+
+#changeTempFormat:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.062);
+}
+
+#searchBox {
+    border: none;
+    outline: none;
+    display: flex;
+    background-color: white;
+    width: 240px;
+    border-radius: 15px;
+    padding: 5px 6px;
+}
+
+#inputBox {
+    border: none;
+    outline: none;
+    padding: 5px 0;
+    padding-left: 7px;
+}
+
+
+#searchIcon {
+    width: 25px;
+}
+
+#searchIcon:hover {
+    cursor: pointer;
 }

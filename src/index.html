@@ -15,11 +15,12 @@
     </header>
 
     <div id="content">
+        <!-- ASIDE CONTENT -->
         <aside id="aside">
 
             <!-- CURRENT WEATHER CONDITION -->
             <div id="inputContainer">
-                <h2></h2>
+                <h2 id="currentCondition"></h2>
                 <h3 id="cityName"></h3>
                 <h4 id="dateTime"></h4>
                 <h5 id="currentTemp"></h5>
@@ -27,16 +28,19 @@
             </div>
 
             <!-- INPUT CONTAINER -->
-            <div id="inputContainer">
-                <input type="text" name="searchCity" id="searchCity">
-                <button>Search</button>
+            <div id="searchBox">
+                <input type="text" name="searchCity" id="inputBox">
+                <div id="searchBtn"><img id="searchIcon" src="/assets/icons/search.svg" alt="search icon"></div>
             </div>
         </aside>
 
         <main id="forcastContainer">
-            <div id="hourlyForecast"></div>
-
-            <div id="weeklyForecast"></div>
+            <div id="currentWeather">
+                <div id="hourlyForecast"></div>
+            </div>
+            <div id="futureWeather">
+                <div id="weeklyForecast"></div>
+            </div>
         </main>
     </div>
 

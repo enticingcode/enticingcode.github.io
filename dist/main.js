@@ -7,6 +7,7 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/index.js":
@@ -15,7 +16,6 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_fetchAPI_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/fetchAPI.js */ \"./src/modules/fetchAPI.js\");\n/* harmony import */ var _modules_initial_load_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/initial-load.js */ \"./src/modules/initial-load.js\");\n\n\n\n\n\n(0,_modules_initial_load_js__WEBPACK_IMPORTED_MODULE_1__.loadPage)();\n\n//this needs to be used via addEventListener on initial load //\n(0,_modules_fetchAPI_js__WEBPACK_IMPORTED_MODULE_0__.fetchCityData)();\n\n\n\n//# sourceURL=webpack://weatherapp/./src/index.js?");
 
 /***/ }),
@@ -24,9 +24,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /*!*********************************!*\
   !*** ./src/modules/fetchAPI.js ***!
   \*********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("throw new Error(\"Module parse failed: Export 'getWeatherData' is not defined (32:24)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| \\n| \\n> export { fetchCityData, getWeatherData };\");\n\n//# sourceURL=webpack://weatherapp/./src/modules/fetchAPI.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"fetchCityData\": () => (/* binding */ fetchCityData)\n/* harmony export */ });\n\nasync function fetchCityData(city) {\n\n    // CITY IS GRABBED FROM INDEX.JS INVOKATION HERE DONT GET CONFUSED //\n    let lat;\n    let lon;\n\n    let cityAPI = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city},&limit=4&appid=ff42af52d27576f36d9217a0f6903066`, { mode: 'cors' })\n    let data = await cityAPI.json();\n\n    // returns coordinates //\n    let coordinates = function (data) {\n        for (let [key, value] of Object.entries(data[0])) {\n            if (key == 'lat') {\n                lat = value;\n            }\n            if (key == 'lon') {\n                lon = value;\n            }\n        }\n        return { lat, lon }\n    };\n\n    let getWeatherData = function () {\n        console.log(coordinates(data).lat);\n    }\n\n}\n\n\n\n\n\n//# sourceURL=webpack://weatherapp/./src/modules/fetchAPI.js?");
 
 /***/ }),
 
@@ -36,8 +36,7 @@ eval("throw new Error(\"Module parse failed: Export 'getWeatherData' is not defi
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"loadPage\": () => (/* binding */ loadPage)\n/* harmony export */ });\nfunction loadPage() {\n\n\n}\n\n\n\n\n//# sourceURL=webpack://weatherapp/./src/modules/initial-load.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"loadPage\": () => (/* binding */ loadPage)\n/* harmony export */ });\nfunction loadPage() {\n\n    function defaultWeather() {\n\n    }\n\n    // GATHER DOM ELEMENTS AND APPLY LISTENERS //\n    function selectElements() {\n        const currentCondition = document.querySelector(\"#currentCondition\");\n    }\n\n    function addListeners() {\n\n    }\n\n\n\n\n\n\n\n\n\n}\n\n\n\n\n//# sourceURL=webpack://weatherapp/./src/modules/initial-load.js?");
 
 /***/ })
 
