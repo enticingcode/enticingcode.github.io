@@ -1,8 +1,10 @@
-import { fetchWeatherData, fetchCityData } from "./modules/fetchAPI.js";
+import { fetchCityData } from "./modules/fetchAPI.js";
 import { loadPage } from "./modules/initial-load.js";
 
 
 
 loadPage();
-fetchCityData("Los Angeles");
-fetchWeatherData(lat, lon);
+
+//this needs to be used via addEventListener on initial load //
+fetchCityData();
+

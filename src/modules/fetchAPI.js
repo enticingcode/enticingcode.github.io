@@ -6,12 +6,10 @@ async function fetchCityData(city) {
     let lon;
 
     let cityAPI = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city},&limit=4&appid=ff42af52d27576f36d9217a0f6903066`, { mode: 'cors' })
-    let data = await cityAPI.json()
-    console.log(data);
-
+    let data = await cityAPI.json();
 
     // returns coordinates //
-    let coordinates = await function (data) {
+    let coordinates = function (data) {
         for (let [key, value] of Object.entries(data[0])) {
             if (key == 'lat') {
                 lat = value;
@@ -20,19 +18,15 @@ async function fetchCityData(city) {
                 lon = value;
             }
         }
+        return { lat, lon }
     };
-    console.log(coordinates(data));
 
-    console.log(lat, lon);
-}
-
-
-// function goes here, but the lat and lon stay within the fetchCityData function // 
-
-async function fetchWeatherData(lat, lon) {
+    let getWeatherData = function () {
+        console.log(coordinates(data).lat);
+    }
 
 }
 
 
 
-export { fetchCityData, fetchWeatherData };
+export { fetchCityData, getWeatherData };

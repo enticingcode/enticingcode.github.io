@@ -147,7 +147,7 @@ table {
 }
 
 :root {
-    --sunny-day: linear-gradient(#fffba8, #a3d3f3);
+    --sunny-day: linear-gradient(#ffe07b, #a3d3f3);
     --rainy-day: linear-gradient(#616e8f, #3c4850);
     --cloudy-day: linear-gradient(#d2d2ba, #e0ddb3);
     --snowy-day: linear-gradient(#d5d5d5, #cdd0d2);
