@@ -1,4 +1,6 @@
 import { fetchCityData } from "./fetchAPI.js";
+let capitalize = require('capitalize');
+
 
 function loadPage() {
     const searchBtn = document.querySelector("#searchBtn");
@@ -28,14 +30,6 @@ function loadPage() {
     }
 
     async function defaultWeather() {
-        selectedCity = await fetchCityData("Los Angeles");
-        console.log(selectedCity);
-        return selectedCity;
-    }
-
-    defaultWeather();
-
-    function loadDefaultCity() {
         const currentCondition = document.querySelector("#currentCondition");
         const cityName = document.querySelector("#cityName");
         const dateTime = document.querySelector("#dateTime");
@@ -43,7 +37,13 @@ function loadPage() {
         const changeFormat = document.querySelector("#changeTempFormat");
 
 
+        selectedCity = await fetchCityData("Fayetteville");
+        console.log(selectedCity);
+        currentCondition.innerText = capitalize(selectedCity.current.weather[0].description);
+
     }
+
+    defaultWeather();
 
 
 
