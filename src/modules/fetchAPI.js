@@ -1,15 +1,12 @@
 
 async function fetchCityData(city) {
-
-    // CITY IS GRABBED FROM INDEX.JS INVOKATION HERE DONT GET CONFUSED //
     let lat;
     let lon;
-
     let cityAPI = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city},&limit=4&appid=ff42af52d27576f36d9217a0f6903066`, { mode: 'cors' })
-    let data = await cityAPI.json();
+    let rawData = await cityAPI.json();
+    // console.log(rawData);
 
-    // returns coordinates //
-    let coordinates = function (data) {
+    let cityData = function (data) {
         for (let [key, value] of Object.entries(data[0])) {
             if (key == 'lat') {
                 lat = value;
@@ -18,18 +15,19 @@ async function fetchCityData(city) {
                 lon = value;
             }
         }
-        return { lat, lon }
-    };
-
-    let getWeatherData = async function () {
-        let fetchWeather = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates(data).lat}&lon=${coordinates(data).lon}&appid=ff42af52d27576f36d9217a0f6903066`, { mode: 'cors' })
-        // console.log(coordinates(data).lat);
-        let weatherData = await fetchWeather.json();
-        return weatherData
+        let cityInfo = data[0];
+        return { lat, lon, cityInfo };
     }
-    return getWeatherData();
+    return cityData(rawData);
+}
+
+async function getWeatherData(cityName) {
+    let coordinates = await fetchCityData(cityName);
+    let fetchWeather = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=ff42af52d27576f36d9217a0f6903066`, { mode: 'cors' })
+    let weatherData = await fetchWeather.json();
+    console.log(weatherData);
+    return weatherData
 }
 
 
-
-export { fetchCityData };
+export { fetchCityData, getWeatherData };

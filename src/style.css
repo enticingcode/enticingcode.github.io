@@ -225,6 +225,15 @@ main {
     padding-left: 7px;
 }
 
+#inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#inputContainer * {
+    text-align: center;
+    padding: 4px 0;
+}
 
 #searchIcon {
     width: 25px;

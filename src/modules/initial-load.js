@@ -1,6 +1,7 @@
-import { fetchCityData } from "./fetchAPI.js";
-let capitalize = require('capitalize');
-
+import { fetchCityData, fetchData } from "./fetchAPI.js";
+import { getWeatherData } from "./fetchAPI.js";
+import { format } from "date-fns";
+let capitalize = require("capitalize");
 
 function loadPage() {
     const searchBtn = document.querySelector("#searchBtn");
@@ -8,7 +9,7 @@ function loadPage() {
     inputBox.addEventListener("keydown", pressEnter);
 
     let selectedCity;
-
+    let cityWeather;
     function pressEnter(evt) {
         if (evt.keyCode === 13) {
             searchBtn.click();
@@ -23,13 +24,13 @@ function loadPage() {
             inputBox.reportValidity();
         }
         else if (!inputBox.value.includes("/^\d+$/")) {
-            selectedCity = await fetchCityData(inputBox.value);
+            selectedCity = await populateInfo(inputBox.value);
         }
-
-        // SELECTEDCITY NOW HAS OBJECT INFO //
     }
 
-    async function defaultWeather() {
+
+
+    async function populateInfo(city) {
         const currentCondition = document.querySelector("#currentCondition");
         const cityName = document.querySelector("#cityName");
         const dateTime = document.querySelector("#dateTime");
@@ -37,16 +38,21 @@ function loadPage() {
         const changeFormat = document.querySelector("#changeTempFormat");
 
 
-        selectedCity = await fetchCityData("Fayetteville");
+        cityWeather = await getWeatherData(city);
+        currentCondition.innerText = capitalize.words(cityWeather.current.weather[0].description);
+
+        selectedCity = await fetchCityData(city);
         console.log(selectedCity);
-        currentCondition.innerText = capitalize(selectedCity.current.weather[0].description);
+
+        // CLEAN THIS UP SOMEHOW //
+        cityName.innerText = capitalize.words(`${selectedCity.cityInfo.name}, ${selectedCity.cityInfo.state}, ${selectedCity.cityInfo.country}`)
+        let todaysDate = format(new Date(), "MMMM dd, yyyy");
+        console.log(todaysDate);
+        dateTime.innerText = todaysDate;
+        currentTemp.innerText = Math.round(cityWeather.current.temp) + "°F";
 
     }
-
-    defaultWeather();
-
-
-
+    populateInfo("Los Angeles");
 }
 
 
