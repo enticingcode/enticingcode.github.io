@@ -2,6 +2,7 @@ import { fetchCityData, fetchData } from "./fetchAPI.js";
 import { getWeatherData } from "./fetchAPI.js";
 import { format } from "date-fns";
 let capitalize = require("capitalize");
+import { unixTimeConversion } from "./unixTimeConvert.js";
 
 function loadPage() {
     const searchBtn = document.querySelector("#searchBtn");
@@ -31,6 +32,8 @@ function loadPage() {
 
 
     async function populateInfo(city) {
+
+        // ASIDE CONTENT //
         const currentCondition = document.querySelector("#currentCondition");
         const cityName = document.querySelector("#cityName");
         const dateTime = document.querySelector("#dateTime");
@@ -42,15 +45,30 @@ function loadPage() {
         currentCondition.innerText = capitalize.words(cityWeather.current.weather[0].description);
 
         selectedCity = await fetchCityData(city);
-        console.log(selectedCity);
 
         // CLEAN THIS UP SOMEHOW //
         cityName.innerText = capitalize.words(`${selectedCity.cityInfo.name}, ${selectedCity.cityInfo.state}, ${selectedCity.cityInfo.country}`)
         let todaysDate = format(new Date(), "MMMM dd, yyyy");
-        console.log(todaysDate);
         dateTime.innerText = todaysDate;
         currentTemp.innerText = Math.round(cityWeather.current.temp) + "°F";
 
+
+        // MAIN CONTENT (HOURLY & DAILY) //
+        const currentWeather = document.querySelector("#currentWeather");
+        const hourlyForecast = document.querySelector("#hourlyForecast");
+        const futureWeather = document.querySelector("#futureWeather");
+        const weeklyForecast = document.querySelector("#weeklyForecast");
+
+        let hourlyArr = cityWeather.hourly;
+
+        for (let i = 0; i < hourlyArr.length; i++) {
+            const hourCard = document.createElement("div");
+            hourCard.classList.add("hourCard");
+            // hourCard.append(unixTimeConversion(hourlyArr[i].dt))
+            currentWeather.append(hourCard);
+        }
+
+        unixTimeConversion(1650920400)
     }
     populateInfo("Los Angeles");
 }
