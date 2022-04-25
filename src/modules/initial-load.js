@@ -40,7 +40,6 @@ function loadPage() {
         const currentTemp = document.querySelector("#currentTemp");
         const changeFormat = document.querySelector("#changeTempFormat");
 
-
         cityWeather = await getWeatherData(city);
         currentCondition.innerText = capitalize.words(cityWeather.current.weather[0].description);
 
@@ -51,7 +50,6 @@ function loadPage() {
         let todaysDate = format(new Date(), "MMMM dd, yyyy");
         dateTime.innerText = todaysDate;
         currentTemp.innerText = Math.round(cityWeather.current.temp) + "°F";
-
 
         // MAIN CONTENT (HOURLY & DAILY) //
         const currentWeather = document.querySelector("#currentWeather");
@@ -64,8 +62,16 @@ function loadPage() {
         for (let i = 0; i < hourlyArr.length; i++) {
             const hourCard = document.createElement("div");
             hourCard.classList.add("hourCard");
-            // hourCard.append(unixTimeConversion(hourlyArr[i].dt))
-            currentWeather.append(hourCard);
+
+            const infoDiv = document.createElement("div");
+            infoDiv.classList.add("info");
+
+            const p = document.createElement("p");
+            p.append(unixTimeConversion(hourlyArr[i].dt))
+
+            infoDiv.append(p);
+            hourCard.append(infoDiv);
+            hourlyForecast.append(hourCard);
         }
 
         unixTimeConversion(1650920400)

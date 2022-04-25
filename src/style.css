@@ -245,14 +245,31 @@ main {
 
 #currentWeather {
     display: flex;
+    width: 97%;
     height: 500px;
+    border-radius: 10px;
 }
 
-#futureWeather {
+#hourlyForecast {
     display: flex;
+    height: 500px;
+    overflow-x: scroll;
+    border-radius: 10px;
+    border: #3c4850 1px solid;
+}
+
+#weeklyForecast {
+    display: flex;
+    width: 97%;
+    border: #3c4850 1px solid;
     height: 300px;
+    margin-top: 1px;
+    border-radius: 10px;
 }
 
-#hourlyCard {
+.hourCard {
     display: flex;
+    justify-content: center;
+    min-width: 200px;
+    border: 1px black solid;
 }
