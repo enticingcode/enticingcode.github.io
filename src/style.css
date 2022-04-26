@@ -159,6 +159,22 @@ body {
     height: 100%;
 }
 
+.sunnyDay {
+    background-color: var(--sunny-day);
+}
+
+.cloudy {
+    background-color: var(--cloudy-day);
+}
+
+.rainyDay {
+    background-color: var(--rainy-day);
+}
+
+.snowyDay {
+    background-color: var(--snowy-day);
+}
+
 body {
     background: var(--sunny-day)
 }
