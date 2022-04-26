@@ -66,10 +66,15 @@ function loadPage() {
             const infoDiv = document.createElement("div");
             infoDiv.classList.add("info");
 
-            const p = document.createElement("p");
-            p.append(unixTimeConversion(hourlyArr[i].dt))
+            const time = document.createElement("p");
+            const deg = document.createElement("p");
 
-            infoDiv.append(p);
+            time.append(unixTimeConversion(hourlyArr[i].dt))
+            deg.append(Math.round(cityWeather.hourly[i].temp) + " °F")
+            // console.log(deg);
+
+            infoDiv.append(time);
+            infoDiv.append(deg);
             hourCard.append(infoDiv);
             hourlyForecast.append(hourCard);
         }
