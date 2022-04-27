@@ -147,37 +147,36 @@ table {
 }
 
 :root {
-    --sunny-day: linear-gradient(#ffe07b, #a3d3f3);
-    --rainy-day: linear-gradient(#616e8f, #3c4850);
+    --sunny-day: linear-gradient(#f8cd7dd2, #a3d3f3);
+    --rainy-day: linear-gradient(#8891a8, #315268);
     --cloudy-day: linear-gradient(#d2d2ba, #e0ddb3);
     --snowy-day: linear-gradient(#d5d5d5, #cdd0d2);
 }
 
 html,
 body {
+    color: white;
     width: 100%;
     height: 100%;
 }
 
+
 .sunnyDay {
-    background-color: var(--sunny-day);
+    background: var(--sunny-day);
 }
 
 .cloudy {
-    background-color: var(--cloudy-day);
+    background: var(--cloudy-day);
 }
 
 .rainyDay {
-    background-color: var(--rainy-day);
+    background: var(--rainy-day);
 }
 
 .snowyDay {
-    background-color: var(--snowy-day);
+    background: var(--snowy-day);
 }
 
-body {
-    background: var(--sunny-day)
-}
 
 header {
     display: flex;
@@ -217,6 +216,7 @@ main {
     padding: 10px 20px;
     margin: 5px 10px;
     border-radius: 10px;
+    color: white;
 }
 
 #changeTempFormat:hover {

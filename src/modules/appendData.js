@@ -4,6 +4,7 @@ let capitalize = require("capitalize");
 import { unixTimeConversion } from "./unixTimeConvert.js";
 import { format } from "date-fns";
 import { unixDayConversion } from "./unixTimeConvert.js";
+import { backgroundTheme } from "./changeTheme.js";
 
 async function populateInfo(city) {
     let cityWeather;
@@ -116,13 +117,15 @@ async function populateInfo(city) {
         let windy = "/assets/icons/wind.svg";
 
         if (dailyInfo.includes("Clear")) return sunny;
-        if (dailyInfo.includes("Cloud")) return cloudy;
+        if (dailyInfo.includes("Clouds")) return cloudy;
         if (dailyInfo.includes("Rain")) return rainy;
         if (dailyInfo.includes("Thunderstorm")) return thunder;
         if (dailyInfo.includes("Snow")) return snow;
         if (dailyInfo.includes("windy")) return windy;
 
     }
+
+    backgroundTheme('Rain')
 
 }
 
