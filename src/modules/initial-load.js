@@ -5,7 +5,8 @@ function loadPage() {
     const inputBox = document.querySelector("#inputBox");
     inputBox.addEventListener("keydown", pressEnter);
 
-    let selectedCity;
+
+
     function pressEnter(evt) {
         if (evt.keyCode === 13) {
             searchBtn.click();
@@ -20,12 +21,9 @@ function loadPage() {
             inputBox.reportValidity();
         }
         else if (!inputBox.value.includes("/^\d+$/")) {
-            selectedCity = await populateInfo(inputBox.value);
+            await populateInfo(inputBox.value);
         }
     }
-
-
-
 
     populateInfo("Los Angeles");
 }

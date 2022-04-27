@@ -1,3 +1,4 @@
+
 function unixTimeConversion(unixTime) {
     let timeStamp;
     let milliseconds = unixTime * 1000;
@@ -13,6 +14,10 @@ function unixTimeConversion(unixTime) {
 
 }
 
+function unixDayConversion(unixTime) {
+    console.log(unixTime);
+}
 
 
-export { unixTimeConversion };
+
+export { unixTimeConversion, unixDayConversion };
