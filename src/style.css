@@ -281,9 +281,17 @@ main {
     height: 300px;
     margin-top: 1px;
     border-radius: 10px;
+    overflow-x: scroll;
 }
 
 .hourCard {
+    display: flex;
+    justify-content: center;
+    min-width: 200px;
+    border: 1px black solid;
+}
+
+.dayCard {
     display: flex;
     justify-content: center;
     min-width: 200px;

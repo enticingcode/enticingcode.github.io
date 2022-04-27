@@ -72,15 +72,26 @@ async function populateInfo(city) {
         infoDiv.classList.add("info");
 
         const day = document.createElement("p");
-        const deg = document.createElement("p");
+        const high = document.createElement("p");
+        const low = document.createElement("p");
 
         day.append(unixDayConversion(dailyArr[i].dt));
-        deg.append(Math.round(hourlyArr[i].temp) + " °F")
+        high.append("H: " + Math.round(dailyArr[i].temp.max) + " °F")
+        low.append("L: " + Math.round(dailyArr[i].temp.min) + " °F")
 
         infoDiv.append(day);
-        infoDiv.append(deg);
+        infoDiv.append(high);
+        infoDiv.append(low);
         dayCard.append(infoDiv);
         weeklyForecast.append(dayCard);
+
+
+        const sunrise = document.createElement("img");
+        const sunset = document.createElement("img");
+
+        sunrise.src = "./assets/icons/sunrise.svg";
+
+        infoDiv.append(sunrise);
     }
 
 }

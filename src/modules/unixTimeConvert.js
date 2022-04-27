@@ -15,7 +15,11 @@ function unixTimeConversion(unixTime) {
 }
 
 function unixDayConversion(unixTime) {
-    console.log(unixTime);
+    let milliseconds = unixTime * 1000;
+    let dateObj = new Date(milliseconds);
+    let humanDateFormat = dateObj.toLocaleDateString([], { weekday: "short" });
+
+    return humanDateFormat;
 }
 
 
