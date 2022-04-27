@@ -54,6 +54,8 @@ async function populateInfo(city) {
         deg.append(Math.round(hourlyArr[i].temp) + " °F")
         // console.log(deg);
 
+        backgroundTheme(cityWeather.current.weather[0].main);
+
         infoDiv.append(time);
         infoDiv.append(deg);
         hourCard.append(infoDiv);
@@ -106,6 +108,9 @@ async function populateInfo(city) {
         infoDiv.append(sunset);
     }
 
+    const bigIcon = document.querySelector("#bigIcon");
+
+    bigIcon.src = iconChoice(cityWeather.current.weather[0].main)
 
     // set ICONS FOR DAILY FORECAST //
     function iconChoice(dailyInfo) {
@@ -115,6 +120,8 @@ async function populateInfo(city) {
         let thunder = "/assets/icons/cloud-lightning.svg";
         let snow = "/assets/icons/cloud-snow.svg";
         let windy = "/assets/icons/wind.svg";
+        console.log(dailyInfo);
+
 
         if (dailyInfo.includes("Clear")) return sunny;
         if (dailyInfo.includes("Clouds")) return cloudy;
@@ -125,7 +132,6 @@ async function populateInfo(city) {
 
     }
 
-    backgroundTheme('Rain')
 
 }
 

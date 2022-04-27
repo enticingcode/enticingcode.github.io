@@ -3,8 +3,21 @@ import { populateInfo } from "./appendData.js";
 function loadPage() {
     const searchBtn = document.querySelector("#searchBtn");
     const inputBox = document.querySelector("#inputBox");
+    const leftScroll = document.querySelectorAll(".leftScroll");
+    const rightScroll = document.querySelectorAll(".rightScroll");
+
     inputBox.addEventListener("keydown", pressEnter);
 
+    leftScroll.forEach(btn => btn.addEventListener("click", scrollLeft));
+    rightScroll.forEach(btn => btn.addEventListener("click", scrollRight));
+
+    function scrollLeft() {
+        console.log('supleft');
+    }
+
+    function scrollRight() {
+        console.log('supright');
+    }
 
 
     function pressEnter(evt) {
