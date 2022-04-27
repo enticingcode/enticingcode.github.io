@@ -203,12 +203,12 @@ aside {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 400px;
+    width: 350px;
     height: 100%;
 }
 
 main {
-    width: calc(100% - 400px);
+    width: calc(100% - 360px);
     height: 100%;
 }
 
@@ -270,45 +270,47 @@ main {
 
 #currentWeather {
     display: flex;
-    width: 98%;
+    width: 100%;
     height: 350px;
     border-radius: 10px;
 }
 
 #hourlyForecast {
     display: flex;
-    width: 100%;
+    width: 1456px;
     overflow-x: scroll;
     border-radius: 10px;
     border: #3c4850 1px solid;
+    scrollbar-width: none;
 }
 
 #futureWeather {
     display: flex;
-    width: 98%;
+    width: 100%;
 }
 
 #weeklyForecast {
     display: flex;
-    width: 100%;
+    width: 1456px;
     border: #3c4850 1px solid;
     height: 350px;
     margin-top: 1px;
     border-radius: 10px;
     overflow-x: scroll;
+    scrollbar-width: none;
 }
 
 .hourCard {
     display: flex;
     justify-content: center;
-    min-width: 200px;
-    border: 1px black solid;
+    min-width: 206px;
+    border: 1px solid rgba(248, 248, 248, 0.185);
 }
 
 .dayCard {
     display: flex;
     justify-content: center;
-    min-width: 200px;
+    min-width: 206px;
     border: 1px black solid;
 }
 
@@ -342,4 +344,5 @@ main {
 
 #bigIcon {
     width: 100px;
+    margin-bottom: 40px;
 }
