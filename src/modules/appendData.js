@@ -61,37 +61,67 @@ async function populateInfo(city) {
 
     let dailyArr = cityWeather.daily;
     weeklyForecast.innerHTML = "";
-    console.log(dailyArr);
+    // console.log(dailyArr);
 
     for (let i = 0; i < dailyArr.length; i++) {
 
+        // DAY INFO //
         const dayCard = document.createElement("div");
-        dayCard.classList.add("dayCard");
-
         const infoDiv = document.createElement("div");
+        dayCard.classList.add("dayCard");
         infoDiv.classList.add("info");
 
+        // HIGHS AND LOWS OF DAY //
         const day = document.createElement("p");
+        const weatherIcon = document.createElement("img");
         const high = document.createElement("p");
         const low = document.createElement("p");
 
+        weatherIcon.src = iconChoice(dailyArr[i].weather[0].main);
+
         day.append(unixDayConversion(dailyArr[i].dt));
+
         high.append("H: " + Math.round(dailyArr[i].temp.max) + " °F")
         low.append("L: " + Math.round(dailyArr[i].temp.min) + " °F")
 
         infoDiv.append(day);
+        infoDiv.append(weatherIcon);
         infoDiv.append(high);
         infoDiv.append(low);
         dayCard.append(infoDiv);
         weeklyForecast.append(dayCard);
 
 
+
+        // SUNRISE AND SUNET INFO //
         const sunrise = document.createElement("img");
         const sunset = document.createElement("img");
 
-        sunrise.src = "./assets/icons/sunrise.svg";
+        sunrise.src = "/assets/icons/sunrise.svg";
+        sunset.src = "/assets/icons/sunset.svg";
+
 
         infoDiv.append(sunrise);
+        infoDiv.append(sunset);
+    }
+
+
+    // set ICONS FOR DAILY FORECAST //
+    function iconChoice(dailyInfo) {
+        let sunny = "/assets/icons/sun.svg";
+        let cloudy = "/assets/icons/cloud.svg";
+        let rainy = "/assets/icons/cloud-rain.svg";
+        let thunder = "/assets/icons/cloud-lightning.svg";
+        let snow = "/assets/icons/cloud-snow.svg";
+        let windy = "/assets/icons/wind.svg";
+
+        if (dailyInfo.includes("Clear")) return sunny;
+        if (dailyInfo.includes("Cloud")) return cloudy;
+        if (dailyInfo.includes("Rain")) return rainy;
+        if (dailyInfo.includes("Thunderstorm")) return thunder;
+        if (dailyInfo.includes("Snow")) return snow;
+        if (dailyInfo.includes("windy")) return windy;
+
     }
 
 }
