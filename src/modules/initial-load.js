@@ -37,8 +37,8 @@ function loadPage() {
             await populateInfo(inputBox.value);
         }
     }
-
     populateInfo("Los Angeles");
+
 }
 
 

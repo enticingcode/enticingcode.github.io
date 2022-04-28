@@ -186,7 +186,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 140px;
+    height: 15%;
 }
 
 h1 {
@@ -195,7 +195,7 @@ h1 {
 }
 
 #content {
-    height: calc(100% - 140px);
+    height: calc(100% - 15%);
     display: flex;
 }
 
@@ -266,21 +266,25 @@ main {
 .forecastHeader {
     margin: 10px 0;
     padding: 4px 0;
+    font-family: abeezee;
+    font-size: calc(1rem + .6vw)
 }
 
 #currentWeather {
     display: flex;
     width: 100%;
-    height: 350px;
+    height: 300px;
     border-radius: 10px;
 }
 
 #hourlyForecast {
-    display: flex;
-    width: 1456px;
+    display: grid;
+    grid-template-columns: repeat(autofit, minmax(1fr, 1fr));
+    grid-auto-flow: column;
+    /* width: 1456px; */
     overflow-x: scroll;
     border-radius: 10px;
-    border: #3c4850 1px solid;
+    border: 1px solid rgba(248, 248, 248, 0.185);
     scrollbar-width: none;
 }
 
@@ -292,8 +296,8 @@ main {
 #weeklyForecast {
     display: flex;
     width: 1456px;
-    border: #3c4850 1px solid;
-    height: 350px;
+    border: 1px solid rgba(248, 248, 248, 0.185);
+    height: 300px;
     margin-top: 1px;
     border-radius: 10px;
     overflow-x: scroll;
@@ -303,7 +307,7 @@ main {
 .hourCard {
     display: flex;
     justify-content: center;
-    min-width: 206px;
+    min-width: 200px;
     border: 1px solid rgba(248, 248, 248, 0.185);
 }
 
@@ -311,14 +315,24 @@ main {
     display: flex;
     justify-content: center;
     min-width: 206px;
-    border: 1px black solid;
+    border: 1px solid rgba(248, 248, 248, 0.185);
+    font-size: calc(1rem + 0.2vw)
+}
+
+.dayCard img,
+.hourCard img {
+    width: calc(1rem + 1.1vw)
 }
 
 .info {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
+}
 
+.info * {
+    padding: 4px 0;
 }
 
 .leftScroll {

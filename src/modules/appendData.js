@@ -131,8 +131,7 @@ async function populateInfo(city) {
         if (dailyInfo.includes("windy")) return windy;
 
     }
-
-
+    inputBox.value = "";
 }
 
 
