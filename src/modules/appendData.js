@@ -16,13 +16,11 @@ async function populateInfo(city) {
     const cityName = document.querySelector("#cityName");
     const dateTime = document.querySelector("#dateTime");
     const currentTemp = document.querySelector("#currentTemp");
-    const changeFormat = document.querySelector("#changeTempFormat");
 
     cityWeather = await getWeatherData(city);
     currentCondition.innerText = capitalize.words(cityWeather.current.weather[0].description);
 
     selectedCity = await fetchCityData(city);
-    // console.log(selectedCity);
 
     // CLEAN THIS UP SOMEHOW //
     cityName.innerText = capitalize.words(`${selectedCity.cityInfo.name}, ${selectedCity.cityInfo.state}, ${selectedCity.cityInfo.country}`)
@@ -31,16 +29,13 @@ async function populateInfo(city) {
     currentTemp.innerText = Math.round(cityWeather.current.temp) + "°F";
 
     // MAIN CONTENT (HOURLY & DAILY) //
-    // const currentWeather = document.querySelector("#currentWeather");
-    // const futureWeather = document.querySelector("#futureWeather");
     const hourlyForecast = document.querySelector("#hourlyForecast");
     const weeklyForecast = document.querySelector("#weeklyForecast");
 
     let hourlyArr = cityWeather.hourly;
-
     hourlyForecast.innerHTML = "";
+    // APPEND DATA LOOP //
     for (let i = 0; i < hourlyArr.length; i++) {
-
         const hourCard = document.createElement("div");
         hourCard.classList.add("hourCard");
 
@@ -49,6 +44,7 @@ async function populateInfo(city) {
 
         const time = document.createElement("p");
         const deg = document.createElement("p");
+
 
         time.append(unixTimeConversion(hourlyArr[i].dt))
         deg.append(Math.round(hourlyArr[i].temp) + " °F")
@@ -64,8 +60,7 @@ async function populateInfo(city) {
 
     let dailyArr = cityWeather.daily;
     weeklyForecast.innerHTML = "";
-    // console.log(dailyArr);
-
+    console.log(dailyArr);
     for (let i = 0; i < dailyArr.length; i++) {
 
         // DAY INFO //
@@ -99,13 +94,19 @@ async function populateInfo(city) {
         // SUNRISE AND SUNET INFO //
         const sunrise = document.createElement("img");
         const sunset = document.createElement("img");
+        const riseTime = document.createElement("p");
+        const setTime = document.createElement("p");
 
         sunrise.src = "/assets/icons/sunrise.svg";
+        riseTime.innerText = unixTimeConversion(dailyArr[i].sunrise);
         sunset.src = "/assets/icons/sunset.svg";
+        setTime.innerText = unixTimeConversion(dailyArr[i].sunset)
 
 
         infoDiv.append(sunrise);
+        infoDiv.append(riseTime);
         infoDiv.append(sunset);
+        infoDiv.append(setTime);
     }
 
     const bigIcon = document.querySelector("#bigIcon");

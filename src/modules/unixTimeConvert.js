@@ -9,7 +9,6 @@ function unixTimeConversion(unixTime) {
         timeStamp = humanDateFormat.substring(1);
     }
     else timeStamp = humanDateFormat;
-    // console.log(timeStamp);
     return timeStamp;
 
 }

@@ -162,23 +162,36 @@ body {
 
 body {
     backdrop-filter: blur(20px);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 
 .sunnyDay {
     background: var(--sunny-day);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .cloudy {
     background: var(--cloudy-day);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 .rainyDay {
     background: var(--rainy-day);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .snowyDay {
     background: var(--snowy-day);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 
@@ -220,6 +233,7 @@ main {
     margin: 5px 10px;
     border-radius: 10px;
     color: white;
+    display: none;
 }
 
 #changeTempFormat:hover {
@@ -307,8 +321,10 @@ main {
 .hourCard {
     display: flex;
     justify-content: center;
+    align-items: center;
     min-width: 200px;
     border: 1px solid rgba(248, 248, 248, 0.185);
+    font-size: calc(1rem + .5vw);
 }
 
 .dayCard {
@@ -346,6 +362,10 @@ main {
 
 }
 
+.info img {
+    width: 40px;
+}
+
 .rightScroll {
     display: flex;
     align-items: center;
@@ -357,6 +377,23 @@ main {
 }
 
 #bigIcon {
-    width: 100px;
+    width: 120px;
     margin-bottom: 40px;
+}
+
+@media only screen and (min-device-width: 400px) {
+    #content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #forecastContainer {
+        width: 100%;
+        height: 100%;
+    }
+
+    .forecastHeader {
+        text-align: center;
+    }
 }
