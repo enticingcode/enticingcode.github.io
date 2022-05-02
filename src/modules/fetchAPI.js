@@ -3,7 +3,7 @@ async function fetchCityData(city) {
     let lat;
     let lon;
     try {
-        let cityAPI = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city},&limit=4&appid=ff42af52d27576f36d9217a0f6903066`, { mode: 'cors' });
+        let cityAPI = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city},&limit=4&appid=ff42af52d27576f36d9217a0f6903066`, { mode: 'cors' });
         let rawData = await cityAPI.json();
         // console.log(rawData);
 
