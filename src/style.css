@@ -299,7 +299,7 @@ main {
     overflow-x: scroll;
     border-radius: 10px;
     border: 1px solid rgba(248, 248, 248, 0.185);
-    scrollbar-width: none;
+    scrollbar-width: 5px;
 }
 
 #futureWeather {
@@ -314,8 +314,7 @@ main {
     height: 300px;
     margin-top: 1px;
     border-radius: 10px;
-    overflow-x: scroll;
-    scrollbar-width: none;
+    overflow: auto;
 }
 
 .hourCard {
@@ -363,7 +362,7 @@ main {
 }
 
 .info img {
-    width: 40px;
+    width: 35px;
 }
 
 .rightScroll {

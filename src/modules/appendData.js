@@ -61,7 +61,7 @@ async function populateInfo(city) {
     let dailyArr = cityWeather.daily;
     weeklyForecast.innerHTML = "";
     console.log(dailyArr);
-    for (let i = 0; i < dailyArr.length; i++) {
+    for (let i = 1; i < dailyArr.length; i++) {
 
         // DAY INFO //
         const dayCard = document.createElement("div");
@@ -78,6 +78,7 @@ async function populateInfo(city) {
         weatherIcon.src = iconChoice(dailyArr[i].weather[0].main);
 
         day.append(unixDayConversion(dailyArr[i].dt));
+        console.log(unixDayConversion(dailyArr[i].dt))
 
         high.append("H: " + Math.round(dailyArr[i].temp.max) + " °F")
         low.append("L: " + Math.round(dailyArr[i].temp.min) + " °F")
@@ -121,7 +122,7 @@ async function populateInfo(city) {
         let thunder = "/assets/icons/cloud-lightning.svg";
         let snow = "/assets/icons/cloud-snow.svg";
         let windy = "/assets/icons/wind.svg";
-        console.log(dailyInfo);
+        // console.log(dailyInfo);
 
 
         if (dailyInfo.includes("Clear")) return sunny;
