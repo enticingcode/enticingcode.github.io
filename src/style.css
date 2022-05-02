@@ -394,6 +394,36 @@ main {
         align-items: center;
     }
 
+    #currentWeather {
+        justify-content: center;
+    }
+
+    .hourCard {}
+
+    #hourlyForecast {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+    }
+
+    #weeklyForecast {
+        flex-direction: column;
+    }
+
+    .dayCard .info {
+        flex-direction: row;
+    }
+
+    .info * {
+        margin: 0 5px;
+        font-size: 1rem;
+    }
+
+    .info img {
+        width: 24px;
+    }
+
     #forecastContainer {
         width: 100%;
         height: 100%;
