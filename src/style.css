@@ -279,7 +279,7 @@ main {
 
 .forecastHeader {
     margin: 10px 0;
-    padding: 4px 0;
+    padding: 10px 0;
     font-family: abeezee;
     font-size: calc(1rem + .6vw)
 }
@@ -394,6 +394,7 @@ main {
         align-items: center;
     }
 
+
     #currentWeather {
         justify-content: center;
         width: 100%;
@@ -401,11 +402,18 @@ main {
 
     #hourlyForecast {
         flex-wrap: wrap;
-        width: 100%;
+        width: 98%;
     }
 
     #weeklyForecast {
         flex-direction: column;
+        overflow: hidden;
+        width: 98%;
+    }
+
+    #futureWeather {
+        align-items: center;
+        justify-content: center;
     }
 
     .dayCard .info {
