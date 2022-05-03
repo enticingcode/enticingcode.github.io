@@ -380,7 +380,7 @@ main {
     margin-bottom: 30px;
 }
 
-@media only screen and (max-device-width: 500px) {
+@media only screen and (max-device-width: 950px) {
 
     html,
     body {
@@ -396,15 +396,12 @@ main {
 
     #currentWeather {
         justify-content: center;
+        width: 100%;
     }
 
-    .hourCard {}
-
     #hourlyForecast {
-        display: flex;
         flex-wrap: wrap;
         width: 100%;
-        justify-content: center;
     }
 
     #weeklyForecast {
